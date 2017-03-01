@@ -17,25 +17,30 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > This App provide a service to display information about
+  Mobiles and advice users in technical support.
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > This App for Arabic Market and the benefits are displaying
+  Updated information about mobiles and solutions for encounted
+  Technicals problems.
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > This App will help you to show latest mobiles information
+  includes: description , technical supports.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > we will provide a clear and easy explaining about Mobiles
+  Information and technical supporting and solutions to Individual user case.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > We will provide users with better solutions for their Mobile problems .
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > Find the solution for your phone problems.
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > just go to google play and search for smartmobily .
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.

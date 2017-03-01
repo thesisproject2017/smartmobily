@@ -4,9 +4,10 @@
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Muhammad Enjari
+  - __Scrum Master__: Moamar Swedan
+  - __Development Team Members__:Moamar Swedan, Mohammad Tarbosh ,Muhammad Enjari .
+
 
 ## Table of Contents
 
@@ -20,19 +21,22 @@
 
 ## Usage
 
-> Some usage instructions
+> You can open the App on Google Play Store 
 
 ## Requirements
 
-- Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+- Node.js
+- Ionic
+- MongoDB
+- Express
+- 
 
 ## Development
 
 ### Installing Dependencies
+##Tasks
+install node.js
+install ionic
 
 From within the root directory:
 
@@ -40,10 +44,11 @@ From within the root directory:
 sudo npm install -g bower
 npm install
 bower install
+npm install -g cordova ionic
 ```
 
 ### Roadmap
- alabe ya kaber
+ 
 View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
 
 

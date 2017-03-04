@@ -4,6 +4,8 @@ var app = express();
 
 //require your middleware and routes here
 
+require('./config/middleware.js')(app, express);
+require('./config/routes.js')(app, express);
 
 //=============================================================================
 /*									Database								 */
@@ -15,6 +17,8 @@ var db = mongoose.connection;
 //=============================================================================
 /*									Server   								 */
 //=============================================================================
+
+
 var port = process.env.PORT || 3000;
 app.listen(port, function(){
 	console.log('server now open on port ' + port)

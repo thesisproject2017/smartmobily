@@ -18,9 +18,10 @@
   },
   "homepage": "https://github.com/moamar-alswedan/smartmobily#readme",
   "dependencies": {
+    "body-parser": "^1.17.0",
     "express": "^4.15.0",
     "mongoose": "^4.8.5",
-    "nodemon": "^1.11.0",
-    "body-parser":"*"
+    "morgan": "^1.8.1",
+    "nodemon": "^1.11.0"
   }
 }

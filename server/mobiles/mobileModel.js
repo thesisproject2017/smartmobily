@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+
 var mobileSchema = new mongoose.Schema({
 	company :{
 		type : String,
@@ -18,5 +19,5 @@ var mobileSchema = new mongoose.Schema({
 	display:String
 });
 
-var mobile = mongoose.model('mobile', mobileSchema);
-module.exports = mobile;
+var Mobile = mongoose.model('Mobile', mobileSchema);
+module.exports = Mobile;

@@ -1,0 +1,26 @@
+{
+  "name": "smartmobily",
+  "version": "1.0.0",
+  "description": "mobile service",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moamar-alswedan/smartmobily.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moamar-alswedan/smartmobily/issues"
+  },
+  "homepage": "https://github.com/moamar-alswedan/smartmobily#readme",
+  "dependencies": {
+    "express": "^4.15.0",
+    "mongoose": "^4.8.5",
+    "nodemon": "^1.11.0",
+    "body-parser":"*"
+  }
+}

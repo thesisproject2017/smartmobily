@@ -2,10 +2,13 @@ var express = require('express');
 var mongoose = require('mongoose');
 var app = express();
 
+//require your middleware and routes here
+
+
 //=============================================================================
 /*									Database								 */
 //=============================================================================
-var mongoURI = 'mongodb://smart:123@ds117830.mlab.com:17830/smartmobaily';
+var mongoURI = 'mongodb://localhost/smartmobily';
 mongoose.connect(mongoURI);
 var db = mongoose.connection;
 

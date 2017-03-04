@@ -3,9 +3,9 @@ var mongoose = require('mongoose');
 var app = express();
 
 //require your middleware and routes here
-
 require('./config/middleware.js')(app, express);
 require('./config/routes.js')(app, express);
+
 
 //=============================================================================
 /*									Database								 */

@@ -1,9 +1,9 @@
-var mobile = require('./mobileModel.js');
+var Mobile = require('./mobileModel.js');
 
 module.exports = {
 
     getAllMobile : function (req, res){
-    	mobile.find({},function (err, AllMobile) {
+    	Mobile.find({},function (err, AllMobile) {
     		if(err){
     			res.status(500).send("err");
     		}else{
@@ -12,12 +12,12 @@ module.exports = {
     	})
     },
     insertMobile : function (req, res) {
-    	mobile.findOne({name : req.body.name})
+    	Mobile.findOne({name : req.body.name})
     	.exec(function(err, mobile){
     		if(mobile){
     			res.json(new Error('this mobile is exixt'));
     		}else{
-    			var newMobile = new mobile({
+    			var newMobile = new Mobile({
     				company: req.body.company,
     				name : req.body.name,
     				color : req.body.color,

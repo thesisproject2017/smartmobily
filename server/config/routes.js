@@ -6,7 +6,7 @@ var mobileController = require('../mobiles/mobileController.js');
 
 module.exports=function(app, express){
 
-	app.get('/api/mobiles/',mobileController.getAllMobile);
+	app.get('/api/mobiles/:company',mobileController.getAllMobile);
 	app.post('/api/mobiles/',mobileController.insertMobile);
 	
 }

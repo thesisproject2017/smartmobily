@@ -1,13 +1,10 @@
 var mongoose = require('mongoose');
 
 var mobileSchema = new mongoose.Schema({
-	company :{
-		type : String,
-		require : true,
-		unique : true
-	},
-	name : {
-		type :String
+	company : String,
+	name :{
+		type:String,
+		unique: true
 	},
 	color : String,
 	os:String,

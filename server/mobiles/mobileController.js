@@ -14,9 +14,9 @@ module.exports = {
     insertMobile : function (req, res) {
     	Mobile.findOne({name : req.body.name})
     	.exec(function(err, mobile){
-            console.log(err, mobile)
+            
     		if(mobile){
-    			res.json('this mobile is exixt');
+    			res.json(new Error('mobile already exists'));
     		}else{
     			var newMobile = new Mobile({
                     name : req.body.name,

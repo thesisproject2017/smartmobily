@@ -13,6 +13,7 @@ var mobileSchema = new mongoose.Schema({
 	battery:String,
 	memory:String,
 	processor:String,
+	image:String,
 	display:String
 });
 

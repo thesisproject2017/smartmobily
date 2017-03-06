@@ -29,6 +29,8 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "eslint": "^3.17.0",
+    "eslint-config-google": "^0.7.1",
     "supertest": "^3.0.0"
   }
 }

@@ -3,12 +3,13 @@ angular.module("MobileSmart.services", [])
 
 .factory("serv", function ($http, $location, $window) {
 	return {
-		getMobileByCombanyName :function(combany){
+		getMobileByCompanyName :function(company){
 			return $http({
 				method:'GET',
-				url:'/api/mobiles/'+combany
+				url:'/api/mobiles/'+company
 			})
 			.then(function(resb){
+				console.log(resb.data)
 				return resb.data;
 			})
 		}

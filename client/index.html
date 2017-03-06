@@ -5,19 +5,24 @@
 	<title>Smart Mobiley</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
-</head>
-<body ng-app ="MobileSmart">
-	<a href="#/Samsung">samsung</a>
-	<a href="#/Apple">Apple</a>
-	<a href="#/Huawei">Huawei</a>
-
-	<ng-view></ng-view>
-
-
 	<script src="Samsung/SamsungCtrl.js"></script>
 	<script src="Apple/Apple.js"></script>
 	<script src="Huawei‬‏/Huawei‬‏.js"></script>
+	<script src="singup/singup.js"></script>
 	<script src="services/services.js"></script>
+	<script src="signin/signin.js"></script>
+	<script src="signout/signout.js"></script>
 	<script src="app.js"></script>
+</head>
+<body ng-app ="MobileSmart">
+
+	<a href="#/Samsung">samsung</a>
+	<a href="#/Apple">Apple</a>
+	<a href="#/Huawei">Huawei</a>
+	<a href="#/singup">singup</a>
+	<a href="#/signin">signin</a>
+	<a href="#/signout">signout</a>
+	<ng-view></ng-view>
+	
 </body>
 </html>

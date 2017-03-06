@@ -3,6 +3,9 @@ angular.module("MobileSmart",[
 	"MobileSmart.Samsung",
 	"MobileSmart.Apple",
 	"MobileSmart.Huawei",
+	 "MobileSmart.signout",
+	"MobileSmart.signin",
+	"MobileSmart.singup",
 	"ngRoute"
 	])
 
@@ -10,16 +13,56 @@ angular.module("MobileSmart",[
 	$routeProvider
 	.when("/Samsung", {
 		templateUrl: "Samsung/Samsung.html",
-		controller: "SamsungCtrl",	
+		controller: "SamsungCtrl"
 	})
 	.when("/Apple", {
-		templateUrl: "./Apple/Apple.html",
-		controller: "AppleCtrl",	
+		templateUrl: "Apple/Apple.html",
+		controller: "AppleCtrl"	
 	})
 	.when("/Huawei", {
 		templateUrl: "Huawei‬‏/Huawei‬‏.html",
-		controller: "Huawei‬‏Ctrl",	
+		controller: "Huawei‬‏Ctrl"	
 	})
-
+	.when('/signout', {
+		template: '',
+		controller: 'signoutCtrl'
+	})
+	.when("/singup", {
+		templateUrl: "singup/singup.html",
+		controller: "singupCtrl"
+	})
+	.when("/signin", {
+		templateUrl: "signin/signin.html",
+		controller: "signinCtrl"
+	})
 	.otherwise({redirectTo:"/"})
+
+
+	$locationProvider.hashPrefix("")
+	$httpProvider.interceptors.push("AttachTokens")
+})
+
+
+.factory("AttachTokens", function ($window) {
+
+	var attach = {
+		request: function (object) {
+			var jwt = $window.localStorage.getItem("MobileSmart")
+			if (jwt) {
+				object.headers["x-access-token"] = jwt
+			}
+			object.headers["Allow-Control-Allow-Origin"] = "*"
+			return object
+		}
+	}
+	return attach
+
+})
+.run(function ($rootScope, $location, serv) {
+
+	$rootScope.$on("$routeChangeStart", function (evt, next, current) {
+		if (next.$$route && next.$$route.authenticate && !serv.isAuth()) {
+			$location.path("/signin")
+		}
+	})
 })

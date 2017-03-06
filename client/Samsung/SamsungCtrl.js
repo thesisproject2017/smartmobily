@@ -13,5 +13,3 @@ app.controller('SamsungCtrl', function ($scope, serv){
 		})
 	}
 })
-
-//$scope.getSumsungMobiles()

@@ -18,5 +18,4 @@ describe('Mobile', function () {
 		})
 	})
 })
-
-// Content-type: 
+ 

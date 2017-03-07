@@ -1,36 +1,36 @@
 {
-  "name": "smartmobily",
-  "version": "1.0.0",
-  "description": "mobile service",
-  "main": "server.js",
-  "scripts": {
-    "start": "nodemon server/server.js",
-    "test": "mocha server/mobiles/spec.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/moamar-alswedan/smartmobily.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/moamar-alswedan/smartmobily/issues"
-  },
-  "homepage": "https://github.com/moamar-alswedan/smartmobily#readme",
-  "dependencies": {
-    "body-parser": "^1.17.0",
-    "express": "^4.15.0",
-    "jwt-simple": "^0.5.1",
-    "mocha": "^3.2.0",
-    "mongoose": "^4.8.5",
-    "morgan": "^1.8.1",
-    "node.js": "0.0.0",
-    "nodemon": "^1.11.0"
-  },
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "eslint": "^3.17.0",
-    "eslint-config-google": "^0.7.1",
-    "supertest": "^3.0.0"
-  }
+ "name": "smartmobily",
+ "version": "1.0.0",
+ "description": "mobile service",
+ "main": "server.js",
+ "scripts": {
+   "start": "nodemon server/server.js",
+   "test": "mocha server/mobiles/spec.js"
+ },
+ "repository": {
+   "type": "git",
+   "url": "git+https://github.com/moamar-alswedan/smartmobily.git"
+ },
+ "author": "",
+ "license": "ISC",
+ "bugs": {
+   "url": "https://github.com/moamar-alswedan/smartmobily/issues"
+ },
+ "homepage": "https://github.com/moamar-alswedan/smartmobily#readme",
+ "dependencies": {
+   "body-parser": "^1.17.0",
+   "express": "^4.15.0",
+   "jwt-simple": "^0.5.1",
+   "mocha": "^3.2.0",
+   "mongoose": "^4.8.5",
+   "morgan": "^1.8.1",
+   "node.js": "0.0.0",
+   "nodemon": "^1.11.0"
+ },
+ "devDependencies": {
+   "chai": "^3.5.0",
+   "eslint": "^3.17.0",
+   "eslint-config-google": "^0.7.1",
+   "supertest": "^3.0.0"
+ }
 }

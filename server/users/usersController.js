@@ -16,7 +16,7 @@ module.exports={
 		})
 		.then(function(user) {
   // create token
-  var token=jwt.encode(user, 'secret');
+  var token=jwt.encode(user._id + '&'+ user.username, 'secret');
   	res.json({token: token});
 		});
 	},
@@ -24,13 +24,12 @@ module.exports={
 		var username=req.body.username;
 		var password=req.body.password;
 		Users.findOne({username: username})
-		.then(function(user){
+		.then(function(user) {
 			if(!user) {
 				next(new Error('user does not exist'));
 			}else{
-		var token=jwt.encode(user, 'secret');
+		var token=jwt.encode(user._id + "&"+user.username, 'secret');
 		res.json({token: token});
-
 			}
 		});
 	},

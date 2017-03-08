@@ -9,7 +9,6 @@ angular.module('MobileSmart.services', [])
 				url: '/api/mobiles/'+company,
 			})
 			.then(function(resb) {
-				console.log(resb.data);
 				return resb.data;
 			});
 		},
@@ -41,6 +40,24 @@ angular.module('MobileSmart.services', [])
 			$window.localStorage.removeItem('MobileSmart');
 			$location.path('/signin');
 		},
+		insertComment: (comment)=>{
+			return $http({
+				method : 'POST',
+				url : '/api/comment/comment',
+				data: comment,
+				token : $window.localStorage.getItem('MobileSmart')
+			}).then((res)=>{
+				return res.data.comment;
+			})
+		},
+		getComments : ()=>{
+			return $http({
+				method : 'GET',
+				url : '/api/comment/comment'
+			}).then((res)=>{
+				return res.data
+			})
+		}
 
 	};
 });

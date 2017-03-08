@@ -5,7 +5,7 @@ app.controller('Huawei‬‏Ctrl', function($scope, serv) {
 	$scope.getHuaweiMobiles = function(Huawei) {
 		console.log(Huawei);
 		serv.getMobileByCompanyName(Huawei).then(function(data) {
-			for(var i = 0; i< data.length; i++) {
+			for(let i = 0; i< data.length; i++) {
 				$scope.Mobiles.push(data[i]);
 			}
 		})

@@ -1,8 +1,17 @@
 <div> 
-<h1 >Apple Mobiles</h1>
-<div ng-init="getAppleMobiles('Apple')">
-	<div ng-repeat="elment in Mobiles">
-		<p>	{{elment.name}}</p>
+	<h1 >Apple Mobiles</h1>
+	<div ng-init="getAppleMobiles('Apple')">
+		<div ng-repeat="elment in Mobiles">
+			<p>	{{elment.name}}</p>
+		</div>
+		<form method="post" >
+			<input ng-model="comments.comment" type="text"> 
+			<button  ng-click="insertcomment()">zin zinon</button> 
+		</form>
 	</div>
-</div>
+	<button ng-click="getComments()">resev</button>
+	<div ng-repeat="el in resevecomment">
+		 <p>{{el.username}}</p> 
+		<p>{{el.comment}}</p>
+	</div>
 </div>

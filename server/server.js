@@ -10,7 +10,7 @@ require('./config/routes.js')(app, express);
 // =============================================================================
 /*									Database								 */
 // =============================================================================
-var mongoURI = 'mongodb://localhost/smartmobily';
+var mongoURI = 'mongodb://smart:123@ds117830.mlab.com:17830/smartmobaily';
 mongoose.connect(mongoURI);
 var db = mongoose.connection;
 

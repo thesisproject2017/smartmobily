@@ -1,10 +1,9 @@
-'use strict'
-var app = angular.module('MobileSmart.singup', []);
-
+'use strict';
+ var app = angular.module('MobileSmart.singup', []);
 
 app.controller('singupCtrl', function($scope, $window, $location, serv) {
  $scope.user = {};
-console.log('in');
+console.log('x  in');
   $scope.signup = function() {
     serv.signup($scope.user)
     .then(function(token) {

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 	<title>Smart Mobiley</title>
+    <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+	<link rel="icon" type="image/png" href="image/favicon.ico" sizes="32x32" />
+    <link rel="stylesheet" href="css/main.css">
 	<script src="Samsung/SamsungCtrl.js"></script>
 	<script src="Apple/Apple.js"></script>
 	<script src="Huawei‬‏/Huawei‬‏.js"></script>
@@ -16,14 +18,34 @@
 	<script src="app.js"></script>
 </head>
 <body ng-app ="MobileSmart">
-
-	<a href="#/Samsung">samsung</a>
-	<a href="#/Apple">Apple</a>
-	<a href="#/Huawei">Huawei</a>
-	<a href="#/Nokia">Nokia</a>
-	<a href="#/singup">singup</a>
-	<a href="#/signin">signin</a>
-	<a href="#/signout">signout</a>
+<!-- logo -->
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<img alt="Brand" src="image/logo.png" class="img-responsive">
+		</div>
+	</div>
+<!-- menu bar -->
+<div class="navbar-wrapper">
+    <div class="container-fluid">
+        <nav class="navbar navbar-fixed-top">
+            <div class="container">
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#/index.html" class="">Home Page</a></li>
+                        <li><a href="#/Samsung">Samsung</a></li>
+                        <li><a href="#/Apple">Apple</a></li>
+                        <li><a href="#/Huawei">Huawei</a></li>  
+                    </ul>
+                    <ul class="nav navbar-nav pull-right">
+                        <li class=""><a href="#/singup">singup</a></li>
+                        <li class=""><a href="#/signin">signin</a></li>
+                        <li class=""><a href="#/signin">signout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
 	<ng-view></ng-view>
 	
 </body>

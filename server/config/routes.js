@@ -13,12 +13,16 @@ module.exports = (app, express)=> {
 	/*								Users Route									 */
 // =============================================================================
 
-	app.post('/api/users/signup', usersController.signup);
-	app.post('/api/users/signin', usersController.signin);
-
+app.post('/api/users/signup', usersController.signup);
+app.post('/api/users/signin', usersController.signin);
 	// =============================================================================
-	/*								Users Route									 */
+	/*								reply route				 */
 // =============================================================================
-	app.post('/api/comment/comment', commentCtrl.insertComment);
-	app.get('/api/comment/comment',commentCtrl.getAllComments);
+app.post('/api/comment/comments/',commentCtrl.insertReply)
+app.get('/api/comment/comments/',commentCtrl.reseveReplys)
+	// =============================================================================
+	/*								comments route			 */
+// =============================================================================
+app.post('/api/comment/comment', commentCtrl.insertComment);
+app.get('/api/comment/comment',commentCtrl.getAllComments);
 };

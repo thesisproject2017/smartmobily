@@ -57,6 +57,29 @@ angular.module('MobileSmart.services', [])
 			}).then((res)=>{
 				return res.data
 			})
+		},
+		insertReply : (data)=>{
+			console.log(data)
+			return $http({
+				method:"POST",
+				url:'/api/comment/comments/',
+				data : data,
+				token:$window.localStorage.getItem('MobileSmart')
+			}).then((res)=>{
+				console.log('res.data')
+				return res.data
+			})
+		},
+		getAllReply : (data)=>{
+			console.log(data)
+			return $http({
+				method:'GET',
+				url:'/api/comment/comments/',
+				data:data
+			})
+			.then((res)=>{
+				return res.data
+			})
 		}
 
 	};

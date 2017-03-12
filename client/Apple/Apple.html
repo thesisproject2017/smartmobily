@@ -6,12 +6,24 @@
 		</div>
 		<form method="post" >
 			<input ng-model="comments.comment" type="text"> 
-			<button  ng-click="insertcomment()">zin zinon</button> 
+			<button  ng-click="insertcomment('Apple')">zin zinon</button> 
 		</form>
 	</div>
 	<button ng-click="getComments()">resev</button>
 	<div ng-repeat="el in resevecomment">
-		 <p>{{el.username}}</p> 
-		<p>{{el.comment}}</p>
+		<ul>
+			<li> <p>{{el.username}}</p>
+				<p>{{el.comment}}</p>
+				<div ng-repeat="reply in el.reply track by $index">
+				<p>{{reply}}</p>
+				</div>
+
+				<input type="checkbox" ng-model="myVar" >Reply
+				<div ng-show="myVar">
+					<input type="text" ng-model="Reply.reply">
+					<button ng-click="insertReply(el._id)">Reply</button>
+				</div>
+			</li>
+		</ul>
 	</div>
 </div>

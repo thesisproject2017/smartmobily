@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Smart Mobiley</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <title>Smart Mobiley</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
     <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="image/favicon.ico" sizes="32x32" />
@@ -16,6 +16,7 @@
     <script src="signin/signin.js"></script>
     <script src="signout/signout.js"></script>
     <script src="app.js"></script>
+    <script src="AddMobiles/addmobiles.js"></script>
     <script src="main/main.js"></script>
     
 </head>
@@ -36,6 +37,7 @@
                     <li><a href="#/Huawei">Huawei</a></li>  
                 </ul>
                 <ul class="nav navbar-nav pull-right">
+                <!-- <li><a href="#/AddMobiles">Add Mobiles</a></li> -->
                     <li class=""><a href="#/singup">singup</a></li>
                     <li class=""><a href="#/signin">signin</a></li>
                     <li class=""><a href="#/signout">signout</a></li>
@@ -48,9 +50,7 @@
 <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
 <ng-view></ng-view>
 <script src="/bower_components/jquery/dist/jquery.js"></script>
-<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>	
-</body>
-</html>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>    
 <script>
 $(document).ready(function(){
      $(window).scroll(function () {
@@ -70,6 +70,7 @@ $(document).ready(function(){
         });
         
         $('#back-to-top').tooltip('show');
-
 });
 </script>
+</body>
+</html>

@@ -105,3 +105,20 @@ border: none;
   color: #007D9D
 
 }
+
+.thumbnail {
+  border: 1px solid #BFBFBF ;
+  border-width: 2px;
+  position: relative;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom:25px;
+}
+
+.thumbnail img {
+border: 0px;
+ margin-top: 0px;
+ margin-bottom: 0px;
+ max-width: 100%;
+}
+

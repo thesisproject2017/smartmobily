@@ -6,52 +6,47 @@ app.controller('AppleCtrl', function($scope, serv) {
 	$scope.resevecomment = [];
 	$scope.Reply = {};
 	$scope.AllReply = [];
-	$scope.getAppleMobiles = function(Apple) {
-		serv.getMobileByCompanyName(Apple).then(function(data) {
+	$scope.names = {};
+	$scope.temp = {};
+
+	$scope.getAppleMobiles = function (Apple) {
+		serv.getMobileByCompanyName(Apple).then((data)=> {
 			for(let i = 0; i< data.length; i++) {
 				$scope.Mobiles.push(data[i]);
 			}
-			$scope.getComments()
+			$scope.getComments();
 		})
-		.catch(function(error) {
+		.catch((error)=> {
 			console.error(error);
-		});
-	},
+		})
+	};
+
 	$scope.getComments = ()=>{
 		serv.getComments().then((data)=>{
-			console.log(data)
-			$scope.resevecomment = data
-
+			$scope.resevecomment = data;
 		})
-		.catch(function(error) {
+		.catch((error)=> {
 			console.error(error);
-		});
+		})
+	};
 
-	}
-
-	$scope.insertcomment = function(){
-		//console.log($scope.comments)
+	$scope.insertcomment = ()=>{
 		serv.insertComment($scope.comments).then(()=>{
-			//$scope.resevecomment.push(data.comment,data.Reply)
 			$scope.getComments();
-
-		}).catch(function(error) {
+		})
+		.catch((error)=> {
 			console.error(error);
-		});
-	}
-	$scope.insertReply = (id)=>{
-		//console.log(id)
+		})
+	};
+
+	$scope.insertReply = (id,username)=>{
 		$scope.Reply.id = id;
+		$scope.Reply.username = username
 		serv.insertReply($scope.Reply).then(()=>{
-			//console.log(data)
 			$scope.getComments()
 		})
-	}
-	$scope.getAllReply = (id)=>{
-		$scope.Reply.id = id;
-		serv.getAllReply($scope.Reply).then((data)=>{
-			console.log(data)
-			$scope.AllReply = data
+		.catch((error)=> {
+			console.error(error);
 		})
-	}
+	};
 });

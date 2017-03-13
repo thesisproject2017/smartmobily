@@ -6,6 +6,8 @@ app.controller('AppleCtrl', function($scope, serv) {
 	$scope.resevecomment = [];
 	$scope.Reply = {};
 	$scope.AllReply = [];
+	$scope.names = {};
+	$scope.temp = [];
 	$scope.getAppleMobiles = function(Apple) {
 		serv.getMobileByCompanyName(Apple).then(function(data) {
 			for(let i = 0; i< data.length; i++) {
@@ -19,10 +21,18 @@ app.controller('AppleCtrl', function($scope, serv) {
 	},
 	$scope.getComments = ()=>{
 		serv.getComments().then((data)=>{
-			console.log(data)
-			$scope.resevecomment = data
+			//console.log(data)
+	// 		for(var i = 0 ;i<data.length;i++){
+	// 			var din = data[i].reply
+	// 			for(var k = 0; k<din.length;k++){
+	// 			//console.log(din[k].split('&')[0])
+	// 		$scope.names.name = din[k].split('&')[1]
+	// 		$scope.temp.push(din[k].split('&')[0]) 					
+	// 			}
+	// }
+	$scope.resevecomment = data
 
-		})
+})
 		.catch(function(error) {
 			console.error(error);
 		});
@@ -39,19 +49,13 @@ app.controller('AppleCtrl', function($scope, serv) {
 			console.error(error);
 		});
 	}
-	$scope.insertReply = (id)=>{
+	$scope.insertReply = (id,username)=>{
 		//console.log(id)
 		$scope.Reply.id = id;
+		$scope.Reply.username = username
 		serv.insertReply($scope.Reply).then(()=>{
 			//console.log(data)
 			$scope.getComments()
-		})
-	}
-	$scope.getAllReply = (id)=>{
-		$scope.Reply.id = id;
-		serv.getAllReply($scope.Reply).then((data)=>{
-			console.log(data)
-			$scope.AllReply = data
 		})
 	}
 });

@@ -8,7 +8,7 @@ app.controller('signinCtrl', function($scope, $window, $location, serv) {
     .then(function(token) {
     	console.log(token);
       $window.localStorage.setItem('MobileSmart', token);
-      $location.path('/');
+      $location.path('/#/Apple');
     })
     .catch(function(error) {
       console.error(error);

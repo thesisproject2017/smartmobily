@@ -19,10 +19,12 @@ angular.module('MobileSmart.services', [])
 				data: user,
 			})
 			.then(function(resp) {
+				console.log(resp.data)
 				return resp.data.token;
 			});
 		},
 		signup: function(user) {
+			//console.log(user)
 			return $http({
 				method: 'POST',
 				url: '/api/users/signup',
@@ -38,6 +40,7 @@ angular.module('MobileSmart.services', [])
 
 		signout: function() {
 			$window.localStorage.removeItem('MobileSmart');
+			//console.log('what')
 			$location.path('/signin');
 		},
 		insertComment: (comment)=>{
@@ -59,25 +62,14 @@ angular.module('MobileSmart.services', [])
 			})
 		},
 		insertReply : (data)=>{
-			console.log(data)
+			//console.log(data)
 			return $http({
 				method:"POST",
 				url:'/api/comment/comments/',
 				data : data,
 				token:$window.localStorage.getItem('MobileSmart')
 			}).then((res)=>{
-				console.log('res.data')
-				return res.data
-			})
-		},
-		getAllReply : (data)=>{
-			console.log(data)
-			return $http({
-				method:'GET',
-				url:'/api/comment/comments/',
-				data:data
-			})
-			.then((res)=>{
+				//console.log('res.data')
 				return res.data
 			})
 		}

@@ -1,4 +1,5 @@
 angular.module('MobileSmart', [
+	'MobileSmart.main',
 	'MobileSmart.services',
 	'MobileSmart.Nokia',
 	'MobileSmart.Samsung',
@@ -39,6 +40,10 @@ angular.module('MobileSmart', [
 	.when('/signin', {
 		templateUrl: 'signin/signin.html',
 		controller: 'signinCtrl'
+	})
+	.when('/', {
+		templateUrl: 'main/main.html',
+		controller: 'mainCtrl'
 	})
 	.otherwise({redirectTo: "/"});
 

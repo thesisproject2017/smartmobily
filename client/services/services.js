@@ -1,46 +1,46 @@
 angular.module('MobileSmart.services', [])
 
-
-.factory('serv', function($http, $location, $window) {
+.factory('serv', ($http, $location, $window)=> {
 	return {
-		getMobileByCompanyName: function(company) {
+
+		getMobileByCompanyName: (company)=> {
 			return $http({
 				method: 'GET',
-				url: '/api/mobiles/'+company,
+				url: '/api/mobiles/'+company
 			})
-			.then(function(resb) {
+			.then((resb)=> {
 				return resb.data;
 			});
 		},
-		signin: function(user) {
+
+		signin: (user)=> {
 			return $http({
 				method: 'POST',
 				url: '/api/users/signin',
-				data: user,
+				data: user
 			})
-			.then(function(resp) {
-				console.log(resp.data)
+			.then((resp)=> {
 				return resp.data.token;
 			});
 		},
-		signup: function(user) {
-			//console.log(user)
+
+		signup: (user)=> {
 			return $http({
 				method: 'POST',
 				url: '/api/users/signup',
-				data: user,
+				data: user
 			})
-			.then(function(resp) {
+			.then((resp)=> {
 				return resp.data.token;
 			});
 		},
-		isAuth: function() {
+
+		isAuth: ()=> {
 			return !!$window.localStorage.getItem('MobileSmart');
 		},
 
-		signout: function() {
+		signout: ()=> {
 			$window.localStorage.removeItem('MobileSmart');
-			//console.log('what')
 			$location.path('/signin');
 		},
 		insertComment: (comment)=>{
@@ -49,32 +49,32 @@ angular.module('MobileSmart.services', [])
 				url : '/api/comment/comment',
 				data: comment,
 				token : $window.localStorage.getItem('MobileSmart')
-			}).then((res)=>{
+			})
+			.then((res)=>{
 				return res.data.comment;
 			})
 		},
+
 		getComments : ()=>{
 			return $http({
 				method : 'GET',
 				url : '/api/comment/comment'
-			}).then((res)=>{
+			})
+			.then((res)=>{
 				return res.data
 			})
 		},
+
 		insertReply : (data)=>{
-			//console.log(data)
 			return $http({
 				method:"POST",
-				url:'/api/comment/comments/',
+				url:'/api/reply/reply/',
 				data : data,
 				token:$window.localStorage.getItem('MobileSmart')
-			}).then((res)=>{
-				//console.log('res.data')
+			})
+			.then((res)=>{
 				return res.data
 			})
 		}
-
 	};
 });
-
-

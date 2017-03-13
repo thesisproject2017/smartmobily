@@ -20,11 +20,9 @@
 					<button ng-click="insertReply(el._id,el.username)">Reply</button>
 				</div>
 				<div ng-repeat="reply in el.reply track by $index">
-				<!-- <div ng-repeat="name in names track by $index"> -->
-				<!-- <p style="color:red">{{name}}</p> -->
-				<p style="color: blue">{{reply}}</p>
+					<p style="color:red">{{reply.username}}</p> 
+					<p style="color: blue">{{reply.reply}}</p>
 				</div></div>
-				
 			</li>
 		</ul>
 	</div>

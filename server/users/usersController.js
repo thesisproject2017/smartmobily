@@ -8,13 +8,9 @@ module.exports={
 	signup: function(req, res, next) {
 		var username=req.body.username;
 		var password=req.body.password;
-		console.log(username,'im in ctrl')
-
-		 console.log(password,'im in pass')
 		var email=req.body.email;
 		findUser({username: username})
 		.then(function(user) {
-			console.log(user,'im hear')
 			if(user) {
 				next(new Error('user already exist'));
 			}else{
@@ -22,10 +18,9 @@ module.exports={
 			}
 		})
 		.then(function(user) {
-  // create token
-  var token=jwt.encode(user._id + '&'+ user.username, 'secret');
-  res.json({token: token});
-});
+		  var token=jwt.encode(user._id + '&'+ user.username, 'secret');
+  			  res.json({token: token});
+		});
 	},
 	signin: function(req, res, next) {
 		var username=req.body.username;
@@ -38,7 +33,6 @@ module.exports={
 				user.comparePasswords(password)
 				.then(function (foundUser) {
 					if (foundUser) {
-						console.log(foundUser,'ding')
 						var token=jwt.encode(user._id + "&"+user.username, 'secret');
 						res.json({token: token, username:req.body.username});
 					} else {

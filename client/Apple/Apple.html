@@ -6,10 +6,10 @@
 		</div>
 		<form method="post" >
 			<input ng-model="comments.comment" type="text"> 
-			<button  ng-click="insertcomment('Apple')">zin zinon</button> 
+			<button  ng-click="insertcomment('Apple')">Add Your Comment</button> 
 		</form>
 	</div>
-	<button ng-click="getComments()">resev</button>
+	<button ng-click="getComments()">Show Comments</button>
 	<div ng-repeat="el in resevecomment">
 		<ul>
 			<li> <p>{{el.username}}</p>

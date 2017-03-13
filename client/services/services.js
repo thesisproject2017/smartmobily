@@ -12,6 +12,18 @@ angular.module('MobileSmart.services', [])
 				return resb.data;
 			});
 		},
+		insertMobile:function(mobile){
+			return $http({
+				method:'POST',
+				url: '/api/mobiles/',
+				data:mobile
+			})
+			.then(function(resp){
+				console.log(resp.data)
+				return resp.data
+			})
+
+		},
 		signin: function(user) {
 			return $http({
 				method: 'POST',

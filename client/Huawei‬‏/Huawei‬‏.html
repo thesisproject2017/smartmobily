@@ -1,10 +1,17 @@
-<div> 
-<h1 >Huawei‬‏ Mobiles</h1>
-<div ng-init="getHuaweiMobiles('Huawei')">
-	<div ng-repeat="elment in Mobiles">
-		<p>	{{elment.name}}</p>
-	</div>
-
+<br>
+<div class="row" ng-init="getSumsungMobiles('Huawei')">
+  <div class="col-xs-6 col-md-4"  ng-repeat="elment in Mobiles">
+    <a href="#" class="thumbnail">
+      <img class="thumbnail" src={{elment.image}} alt="{{elment.company}}" height="132" width="200">
+    </a>
+  <p>	{{elment.name}}</p>
+  <p>{{elment.color}}</p>
+		<p>	{{elment.os}}</p>
+		<p>	{{elment.size}}</p>
+		<p>	{{elment.camera}}</p>
+		<p>	{{elment.battery}}</p>
+		<p>	{{elment.memory}}</p>
+		<p>	{{elment.processor}}</p>
+		<p>	{{elment.display}}</p>
+  </div>
 </div>
-</div>
-

@@ -1,9 +1,7 @@
 let Mobile = require('./mobileModel.js');
 module.exports = {
     getAllMobile: function(req, res) {
-        console.log( req.params.company);
         Mobile.find({company: req.params.company}, function(err, AllMobile) {
-            console.log(AllMobile);
             if(err) {
                 res.status(500).send('err');
             }else{

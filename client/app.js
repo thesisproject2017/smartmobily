@@ -2,7 +2,6 @@ angular.module('MobileSmart', [
 	'MobileSmart.add',
 	'MobileSmart.main',
 	'MobileSmart.services',
-	'MobileSmart.Nokia',
 	'MobileSmart.Samsung',
 	'MobileSmart.Apple',
 	'MobileSmart.Huawei',
@@ -25,10 +24,6 @@ angular.module('MobileSmart', [
 	.when('/Huawei', {
 		templateUrl: 'Huawei‬‏/Huawei‬‏.html',
 		controller: 'Huawei‬‏Ctrl'	
-	})
-	.when('/Nokia', {
-		templateUrl: 'Nokia/Nokia.html',
-		controller: 'NokiaCtrl'	
 	})
 	.when('/signout', {
 		template: '',

@@ -1,0 +1,30 @@
+<div> 
+    <h1 >Apple Mobiles</h1>
+    <div ng-init="getAppleMobiles('Apple')">
+        <div ng-repeat="elment in Mobiles">
+            <p>    {{elment.name}}</p>
+        </div>
+        <form method="post" >
+            <input ng-model="comments.comment" type="text"> 
+            <button  ng-click="insertcomment('Apple')">Add Your Comment</button> 
+        </form>
+    </div>
+    <!-- <button ng-click="getComments()">Show Comments</button> -->
+    <br>
+    <div ng-repeat="el in resevecomment">
+        <ul>
+            <li> <p>{{el.username}}</p>
+                <p>{{el.comment}}</p>
+                <input type="checkbox" ng-model="myVar" >reply
+                <div ng-show="myVar">
+                    <input type="text" ng-model="Reply.reply">
+                    <button ng-click="insertReply(el._id,el.username)">Reply</button>
+                </div>
+                <div ng-repeat="reply in el.reply track by $index">
+                    <p style="color:red">{{reply.username}}</p> 
+                    <p style="color: blue">{{reply.reply}}</p>
+                </div></div>
+            </li>
+        </ul>
+    </div>
+</div>

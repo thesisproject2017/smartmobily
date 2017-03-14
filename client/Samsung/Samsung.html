@@ -1,6 +1,7 @@
 <br>
 
 <div class="row" ng-init="getSumsungMobiles('Samsung')">
+
   <div class="col-sm-6 col-md-4" ng-repeat="elment in Mobiles">
     <div class="thumbnail">
       <img class="thumbnail" src={{elment.image}} alt="{{elment.company}}" height="132" width="200">
@@ -39,3 +40,43 @@
     </div>
   </div>
 </div>
+
+ <div class="col-sm-6 col-md-4" ng-repeat="elment in Mobiles">
+   <div class="thumbnail">
+     <img class="thumbnail" src={{elment.image}} alt="{{elment.company}}" height="132" width="200">
+     <div class="caption">
+       <h3>{{elment.name}}</h3>
+       <p>{{elment.camera}}</p>
+     </div>
+     <div class="container">
+       <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" ng-click = "viewMobile(elment._id)">details</button>
+       <!-- Modal -->
+       <div class="modal fade" id="myModal" role="dialog" >
+         <div class="modal-dialog">
+           <!-- Modal content-->
+           <div class="row"  >
+             <div class="col-sm-6 col-md-4">
+               <div class="caption" ng-repeat="elment in mobile">
+                 <div class="thumbnail">
+                   <pre></pre>
+                   <p>{{elment.name}}</p>
+                   <p>{{elment.color}}</p>
+                   <p> {{elment.os}}</p>
+                   <p> {{elment.size}}</p>
+                   <p> {{elment.camera}}</p>
+                   <p> {{elment.battery}}</p>
+                   <p> {{elment.memory}}</p>
+                   <p> {{elment.processor}}</p>
+                   <p> {{elment.display}}</p>
+                   <div><button  ng-click=" popMobile()" type="button" class="btn btn-default"  data-dismiss="modal">Close</button></div>
+                 </div>
+               </div>
+             </div>
+           </div>    
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+

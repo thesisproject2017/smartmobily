@@ -1,19 +1,54 @@
-<div >
-<form ng-submit='addMobile()'>
-company : <input type="text" ng-model="mobileadded.company"></br>
-name : <input type="text" ng-model="mobileadded.name"></br>
-color: <input type="text" ng-model="mobileadded.color"></br>
-operation system: <input type="text" ng-model="mobileadded.os"></br>
-size : <input type="text" ng-model="mobileadded.size"></br>
-camera : <input type="text" ng-model="mobileadded.camera"></br>
-battery : <input type="text" ng-model="mobileadded.battery"></br>
-Memory : <input type="text" ng-model="mobileadded.memory"></br>
-Processor : <input type="text" ng-model="mobileadded.processor"></br>
-image : <input type="text" ng-model="mobileadded.image"></br>
-display: <input type="text" ng-model="mobileadded.display"></br>
-	<button >add mobile</button>
-</form>	
-
-
-
+<div class="form-horizontal">
+  <h2>Add Mobiles</h2>
+  
+  <form class="form-horizontal" ng-submit='addMobile()'>
+    <div class="form-group">
+      <label for="usr">Company</label>
+      <input type="text" ng-model="mobileadded.company" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Name</label>
+      <input type="text" ng-model="mobileadded.name" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Color</label>
+      <input type="text" ng-model="mobileadded.color" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Operation System</label>
+      <input type="text" ng-model="mobileadded.os" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Size</label>
+      <input type="text" ng-model="mobileadded.size" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Camera</label>
+      <input type="text" ng-model="mobileadded.camera" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Battery</label>
+      <input type="text" ng-model="mobileadded.battery" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Memory</label>
+      <input type="text" ng-model="mobileadded.memory" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Processor</label>
+      <input type="text" ng-model="mobileadded.processor" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Image</label>
+      <input type="text" ng-model="mobileadded.image" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Display</label>
+      <input type="text" ng-model="mobileadded.display" class="form-control" required>
+    </div>
+    <button >Add</button>
+  </form>
 </div>
+
+
+

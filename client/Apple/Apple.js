@@ -5,7 +5,7 @@ app.controller('AppleCtrl', function($scope, serv) {
 	$scope.comments = {};
 	$scope.resevecomment = [];
 	$scope.Reply = {};
-	$scope.temp = {};
+	$scope.mobile = [];
 
 	$scope.getAppleMobiles = function (Apple) {
 		serv.getMobileByCompanyName(Apple).then((data)=> {
@@ -20,7 +20,7 @@ app.controller('AppleCtrl', function($scope, serv) {
 	};
 
 	$scope.getComments = ()=>{
-		serv.getComments().then((data)=>{
+		serv.getComments($scope.Mobiles[0].company).then((data)=>{
 			$scope.resevecomment = data;
 		})
 		.catch((error)=> {
@@ -29,6 +29,7 @@ app.controller('AppleCtrl', function($scope, serv) {
 	};
 
 	$scope.insertcomment = ()=>{
+		$scope.comments.company = $scope.Mobiles[0].company
 		serv.insertComment($scope.comments).then(()=>{
 			$scope.getComments();
 		})
@@ -37,9 +38,8 @@ app.controller('AppleCtrl', function($scope, serv) {
 		})
 	};
 
-	$scope.insertReply = (id,username)=>{
+	$scope.insertReply = (id)=>{
 		$scope.Reply.id = id;
-		$scope.Reply.username = username
 		serv.insertReply($scope.Reply).then(()=>{
 			$scope.getComments()
 		})
@@ -47,4 +47,17 @@ app.controller('AppleCtrl', function($scope, serv) {
 			console.error(error);
 		})
 	};
+
+	$scope.viewMobile = (id)=>{
+		var mop = $scope.Mobiles
+		for(var i = 0; i< mop.length ; i++){
+			if(id === mop[i]._id){
+				$scope.mobile.push(mop[i])
+			}
+		}
+	}
+
+	$scope.popMobile = ()=>{
+		$scope.mobile.pop()
+	}
 });

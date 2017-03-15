@@ -1,26 +1,27 @@
 var app = angular.module('MobileSmart.Huawei', []);
 
-app.controller('Huawei‬‏Ctrl', function($scope, serv) {
+app.controller('Huawei‬‏Ctrl', function($scope, serv,$window) {
 	$scope.Mobiles = [];
-	$scope.mobile = [];
 	$scope.comments = {};
 	$scope.resevecomment = [];
 	$scope.Reply = {};
 	$scope.temp = {};
+	$scope.mobile = [];
+	$scope.ttt = false;
 	$scope.getHuaweiMobiles = function(Huawei) {
 		serv.getMobileByCompanyName(Huawei).then(function(data) {
 			console.log(data)
 			for(let i = 0; i< data.length; i++) {
 				$scope.Mobiles.push(data[i]);
+				$scope.getComments();
 			}
 		})
 		.catch(function(error) {
 			console.error(error);
 		});
 	};
-
-		$scope.getComments = ()=>{
-		serv.getComments().then((data)=>{
+	$scope.getComments = ()=>{
+		serv.getComments($scope.Mobiles[0].company).then((data)=>{
 			$scope.resevecomment = data;
 		})
 		.catch((error)=> {
@@ -28,13 +29,22 @@ app.controller('Huawei‬‏Ctrl', function($scope, serv) {
 		})
 	};
 
-	$scope.insertcomment = ()=>{
-		serv.insertComment($scope.comments).then(()=>{
-			$scope.getComments();
-		})
-		.catch((error)=> {
-			console.error(error);
-		})
+	$scope.insertcomment = (ttt)=>{
+
+		let token = $window.localStorage.getItem('MobileSmart');
+
+		if(token){
+			$scope.ttt = false;
+			$scope.comments.company = $scope.Mobiles[0].company
+			serv.insertComment($scope.comments).then(()=>{
+				$scope.getComments();	
+			})
+			.catch((error)=> {
+				console.error(error);
+			})
+		}else{
+			$scope.ttt = true		
+		}
 	};
 
 	$scope.insertReply = (id,username)=>{

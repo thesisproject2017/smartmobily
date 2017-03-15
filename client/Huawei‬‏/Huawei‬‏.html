@@ -8,6 +8,7 @@
        <h3>{{elment.name}}</h3>
        <p>{{elment.camera}}</p>
      </div>
+
      <div class="container">
        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModa" ng-click = "viewMobile(elment._id)">details</button>
        <!-- Modal -->
@@ -15,7 +16,7 @@
          <div class="modal-dialog">
            <!-- Modal content-->
            <div class="row"  >
-             <div class="col-sm-6 col-md-4">
+             <div class="col-sm-7 col-md-5">
                <div class="caption" ng-repeat="elment in mobile">
                  <div class="thumbnail">
                    <pre></pre>
@@ -37,6 +38,40 @@
        </div>
      </div>
    </div>
+
  </div>
+  <hr width=100% align=left style="color:black">
+
+ <div>
+   <form method="post" >
+   <div ng-show="ttt">
+   <div class="alert alert-danger">
+    <strong>Warning!</strong> Please Signin first.
+  </div>
+  </div>
+
+   <textarea class="form-control" rows="3" ng-model="comments.comment" active></textarea>
+    <button  class="btn btn-primary" ng-click="insertcomment('Apple')">Add Your Comment</button> 
+  </form>
+</div>
+<br>
+<hr  noshade>
+<div ng-repeat="el in resevecomment">
+  <ul>
+    <li> <p>{{el.username}}</p>
+      <p>{{el.comment}}</p>
+      <input type="checkbox" ng-model="myVar" >reply
+      <div ng-show="myVar">
+        <input type="text" ng-model="Reply.reply">
+        <button ng-click="insertReply(el._id,el.username)">Reply</button>
+      </div>
+      <div ng-repeat="reply in el.reply track by $index">
+        <p style="color:red">{{reply.username}}</p> 
+        <p style="color: blue">{{reply.reply}}</p>
+      </div></div>
+    </li>
+  </ul>
+</div>
+</div>
 </div>
 

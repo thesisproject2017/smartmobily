@@ -51,15 +51,21 @@ app.controller('SamsungCtrl', function($scope, serv,$window) {
 	};
 
 	$scope.insertReply = (id,username)=>{
+		let token = $window.localStorage.getItem('MobileSmart');
+		if(token){
+			$scope.disReply = false;
 		$scope.Reply.id = id;
 		$scope.Reply.username = username
-		serv.insertReply($scope.Reply)
-		.then(()=>{
+		serv.insertReply($scope.Reply).then(()=>{
 			$scope.getComments()
 		})
 		.catch((error)=> {
 			console.error(error);
 		})
+	}else{
+			$scope.disReply = true;
+
+	}
 	};
 
 	$scope.viewMobile = function(id){

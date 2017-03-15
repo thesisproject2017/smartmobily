@@ -1,6 +1,6 @@
 var app = angular.module('MobileSmart.Apple', [])
 
-app.controller('AppleCtrl', function($scope, serv) {
+app.controller('AppleCtrl', function($scope, serv,$window) {
 	$scope.Mobiles = [];
 	$scope.comments = {};
 	$scope.resevecomment = [];
@@ -8,8 +8,9 @@ app.controller('AppleCtrl', function($scope, serv) {
 	$scope.temp = {};
 	$scope.mobile = [];
 	$scope.ttt = false;
-	$scope.getHuaweiMobiles = function(Huawei) {
-		serv.getMobileByCompanyName(Huawei).then(function(data) {
+	$scope.disReply = false;
+	$scope.getAppleMobiles = function(Apple) {
+		serv.getMobileByCompanyName(Apple).then(function(data) {
 			console.log(data)
 			for(let i = 0; i< data.length; i++) {
 				$scope.Mobiles.push(data[i]);
@@ -30,9 +31,7 @@ app.controller('AppleCtrl', function($scope, serv) {
 	};
 
 	$scope.insertcomment = (ttt)=>{
-
 		let token = $window.localStorage.getItem('MobileSmart');
-
 		if(token){
 			$scope.ttt = false;
 			$scope.comments.company = $scope.Mobiles[0].company
@@ -47,7 +46,11 @@ app.controller('AppleCtrl', function($scope, serv) {
 		}
 	};
 
+
 	$scope.insertReply = (id,username)=>{
+		let token = $window.localStorage.getItem('MobileSmart');
+		if(token){
+			$scope.disReply = false;
 		$scope.Reply.id = id;
 		$scope.Reply.username = username
 		serv.insertReply($scope.Reply).then(()=>{
@@ -56,6 +59,10 @@ app.controller('AppleCtrl', function($scope, serv) {
 		.catch((error)=> {
 			console.error(error);
 		})
+	}else{
+			$scope.disReply = true;
+
+	}
 	};
 
 	$scope.viewMobile = function(id){

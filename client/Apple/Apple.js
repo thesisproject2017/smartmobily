@@ -5,8 +5,6 @@ app.controller('AppleCtrl', function($scope, serv) {
 	$scope.comments = {};
 	$scope.resevecomment = [];
 	$scope.Reply = {};
-	$scope.AllReply = [];
-	$scope.names = {};
 	$scope.temp = {};
 
 	$scope.getAppleMobiles = function (Apple) {

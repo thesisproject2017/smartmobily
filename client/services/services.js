@@ -68,11 +68,12 @@ angular.module('MobileSmart.services', [])
 		},
 
 		getComments : (company)=>{
+			
 			return $http({
 				method : 'GET',
 				url : '/api/comment/comment/'+company
 			})
-			.then((res)=>{
+			.then((res)=>{console.log(res.data)
 				return res.data
 			})
 		},

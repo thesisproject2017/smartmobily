@@ -44,6 +44,12 @@
 
  <div>
    <form method="post" >
+   <div ng-show="ttt">
+   <div class="alert alert-danger">
+    <strong>Warning!</strong> Please Signin first.
+  </div>
+  </div>
+
    <textarea class="form-control" rows="3" ng-model="comments.comment" active></textarea>
     <button  class="btn btn-primary" ng-click="insertcomment('Apple')">Add Your Comment</button> 
   </form>
@@ -52,12 +58,12 @@
 <hr  noshade>
 <div ng-repeat="el in resevecomment">
   <ul>
-    <li > <p>{{el.username}}</p>
+    <li> <p>{{el.username}}</p>
       <p>{{el.comment}}</p>
       <input type="checkbox" ng-model="myVar" >reply
       <div ng-show="myVar">
         <input type="text" ng-model="Reply.reply">
-        <button ng-click="insertReply(el._id)">Reply</button>
+        <button ng-click="insertReply(el._id,el.username)">Reply</button>
       </div>
       <div ng-repeat="reply in el.reply track by $index">
         <p style="color:red">{{reply.username}}</p> 

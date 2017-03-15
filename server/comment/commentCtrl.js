@@ -9,6 +9,7 @@ module.exports = {
   let newComment = new Comment({
     username: token.split('&')[1],
     comment: req.body.comment,
+    company:req.body.company
   });
 
   newComment.save((err, newComment)=> {
@@ -21,15 +22,14 @@ module.exports = {
 },
 
 getAllComments: (req, res)=> {
-  Comment.find({}, (err, allcomment)=> {
+  Comment.find({company:req.params.company}, (err, allcomment)=> {
     if(err) {
       res.status(500).send('err');
     }else{
       let commentsToGo = allcomment.length;
-
       allcomment.forEach(function(comment) {
-       Reply.find({commantId: comment._id},function(err,de){
-        comment.set('reply', de);
+       Reply.find({commantId: comment._id},function(err,dec){
+        comment.set('reply', dec);
         if(--commentsToGo === 0){
          res.json(allcomment);
        }

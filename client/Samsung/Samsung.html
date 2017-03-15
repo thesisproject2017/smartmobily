@@ -1,6 +1,6 @@
 <br>
 
-<div class="row" ng-init="getSumsungMobiles('Samsung')">
+<div class="row" ng-init="getSamsungMobiles('Samsung')">
  <div class="col-sm-6 col-md-4" ng-repeat="elment in Mobiles">
    <div class="thumbnail">
      <img class="thumbnail" src={{elment.image}} alt="{{elment.company}}" height="132" width="200">
@@ -44,6 +44,12 @@
 
  <div>
    <form method="post" >
+   <div ng-show="ttt">
+   <div class="alert alert-danger">
+    <strong>Warning!</strong> Please Signin first.
+  </div>
+  </div>
+
    <textarea class="form-control" rows="3" ng-model="comments.comment" active></textarea>
     <button  class="btn btn-primary" ng-click="insertcomment('Samsung')">Add Your Comment</button> 
   </form>
@@ -52,7 +58,7 @@
 <hr  noshade>
 <div ng-repeat="el in resevecomment">
   <ul>
-    <li > <p>{{el.username}}</p>
+    <li> <p>{{el.username}}</p>
       <p>{{el.comment}}</p>
       <input type="checkbox" ng-model="myVar" >reply
       <div ng-show="myVar">

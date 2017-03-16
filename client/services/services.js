@@ -24,7 +24,6 @@ angular.module('MobileSmart.services', [])
 
 		},
 
-		
 		signin: (user)=> {
 
 			return $http({
@@ -33,7 +32,7 @@ angular.module('MobileSmart.services', [])
 				data: user
 			})
 			.then((resp)=> {
-				return resp.data.token;
+				return resp.data;
 			});
 		},
 
@@ -68,12 +67,13 @@ angular.module('MobileSmart.services', [])
 			})
 		},
 
-		getComments : ()=>{
+		getComments : (company)=>{
+			
 			return $http({
 				method : 'GET',
-				url : '/api/comment/comment'
+				url : '/api/comment/comment/'+company
 			})
-			.then((res)=>{
+			.then((res)=>{console.log(res.data)
 				return res.data
 			})
 		},

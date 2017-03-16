@@ -26,5 +26,5 @@ module.exports = (app, express)=> {
 	//=============================================================================
 
 	app.post('/api/comment/comment', commentCtrl.insertComment);
-	app.get('/api/comment/comment',commentCtrl.getAllComments);
+	app.get('/api/comment/comment/:company',commentCtrl.getAllComments);
 };

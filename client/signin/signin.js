@@ -1,23 +1,24 @@
 var app = angular.module('MobileSmart.signin', []);
 
 app.controller('signinCtrl', function($scope, $window, $location, serv) {
- $scope.user = {};
-  $scope.signin = function() {
-    serv.signin($scope.user)
-    .then(function(token) {
-      if(token.username==='admin'){
+$scope.user = {};
+ $scope.signin = function() {
+   serv.signin($scope.user)
+   .then(function(token) {
+     if(token.username === 'admin'){
+       // alert('admin is')
      $window.localStorage.setItem('MobileSmart', token.token);
-        $window.location.href='/#/AddMobiles'
-        
-      }else{
-      $window.localStorage.setItem('MobileSmart', token.token);
-      $location.path('/');
+         $window.location.href="/#/AddMobiles"
 
-    }
+     }else{
+     $window.localStorage.setItem('MobileSmart', token.token);
+     $location.path("/")
 
-  })
-    .catch(function(error) {
-      console.error(error);
-    });
-  };
+
+     }
+   })
+   .catch(function(error) {
+     console.error(error);
+   });
+ };
 });

@@ -33,7 +33,7 @@ angular.module('MobileSmart.services', [])
 				data: user
 			})
 			.then((resp)=> {
-				return resp.data.token;
+				return resp.data;
 			});
 		},
 

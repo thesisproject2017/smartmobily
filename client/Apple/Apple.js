@@ -1,28 +1,28 @@
 var app = angular.module('MobileSmart.Apple', [])
 
-app.controller('AppleCtrl', function($scope, serv) {
+app.controller('AppleCtrl', function($scope, serv,$window) {
 	$scope.Mobiles = [];
 	$scope.comments = {};
 	$scope.resevecomment = [];
 	$scope.Reply = {};
-	$scope.AllReply = [];
-	$scope.names = {};
 	$scope.temp = {};
-
-	$scope.getAppleMobiles = function (Apple) {
-		serv.getMobileByCompanyName(Apple).then((data)=> {
+	$scope.mobile = [];
+	$scope.ttt = false;
+	$scope.disReply = false;
+	$scope.getAppleMobiles = function(Apple) {
+		serv.getMobileByCompanyName(Apple).then(function(data) {
+			console.log(data)
 			for(let i = 0; i< data.length; i++) {
 				$scope.Mobiles.push(data[i]);
+				$scope.getComments();
 			}
-			$scope.getComments();
 		})
-		.catch((error)=> {
+		.catch(function(error) {
 			console.error(error);
-		})
+		});
 	};
-
 	$scope.getComments = ()=>{
-		serv.getComments().then((data)=>{
+		serv.getComments($scope.Mobiles[0].company).then((data)=>{
 			$scope.resevecomment = data;
 		})
 		.catch((error)=> {
@@ -30,16 +30,27 @@ app.controller('AppleCtrl', function($scope, serv) {
 		})
 	};
 
-	$scope.insertcomment = ()=>{
-		serv.insertComment($scope.comments).then(()=>{
-			$scope.getComments();
-		})
-		.catch((error)=> {
-			console.error(error);
-		})
+	$scope.insertcomment = (ttt)=>{
+		let token = $window.localStorage.getItem('MobileSmart');
+		if(token){
+			$scope.ttt = false;
+			$scope.comments.company = $scope.Mobiles[0].company
+			serv.insertComment($scope.comments).then(()=>{
+				$scope.getComments();	
+			})
+			.catch((error)=> {
+				console.error(error);
+			})
+		}else{
+			$scope.ttt = true		
+		}
 	};
 
+
 	$scope.insertReply = (id,username)=>{
+		let token = $window.localStorage.getItem('MobileSmart');
+		if(token){
+			$scope.disReply = false;
 		$scope.Reply.id = id;
 		$scope.Reply.username = username
 		serv.insertReply($scope.Reply).then(()=>{
@@ -48,5 +59,22 @@ app.controller('AppleCtrl', function($scope, serv) {
 		.catch((error)=> {
 			console.error(error);
 		})
+	}else{
+			$scope.disReply = true;
+
+	}
 	};
+
+	$scope.viewMobile = function(id){
+		var mop = $scope.Mobiles,temp;
+		for(var i = 0; i< mop.length ; i++){
+			if(id === mop[i]._id){
+				$scope.mobile.push(mop[i])
+			}
+		}
+	}
+
+	$scope.popMobile = function(){
+		$scope.mobile.pop()
+	}
 });

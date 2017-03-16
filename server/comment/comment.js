@@ -5,7 +5,8 @@ let reply = require('../reply/reply.js')
 let commentSchema = new mongoose.Schema({
 	username:String,
 	comment:String,
-	reply:Array
+	reply:Array,
+	company:String
 });
 
 var comment = mongoose.model('comment', commentSchema );

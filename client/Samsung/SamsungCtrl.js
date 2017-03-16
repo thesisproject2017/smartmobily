@@ -8,8 +8,8 @@ app.controller('SamsungCtrl', function($scope, serv,$window) {
 	$scope.mobile = [];
 	$scope.ttt = false;
 
-	$scope.getSamsungMobiles = function(Sumsung) {
-		serv.getMobileByCompanyName(Sumsung).then(function(data) {
+	$scope.getSamsungMobiles = function(Samsung) {
+		serv.getMobileByCompanyName(Samsung).then(function(data) {
 			console.log(data)
 			for(let i = 0; i< data.length; i++) {
 				$scope.Mobiles.push(data[i]);

@@ -79,7 +79,7 @@
                 <div class="form-group">
                   <label for="usr">You Replay on {{el.username}}</label>
                   <input type="text" ng-model="Reply.reply" class="form-control" placeholder="Replay" required>
-                  <button ng-click="insertReply(el._id)">Replay</button>
+                  <button ng-click="insertReply(el._id)"><i ng-show='bo' class="fa fa-spinner fa-spin"></i>Replay</button>
                 </div>
               </div>
             </div>         

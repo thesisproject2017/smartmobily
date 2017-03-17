@@ -10,7 +10,7 @@
      </div>
 
      <div class="container">
-       <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModa" ng-click = "viewMobile(elment._id)">details</button>
+       <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModa" ng-click = "viewMobile(elment._id)" class="btn btn-info">details</button>
        <!-- Modal -->
        <div class="modal fade" id="myModa" role="dialog" >
          <div class="modal-dialog">
@@ -51,6 +51,7 @@
     </div>
 
     <textarea class="form-control" rows="3" ng-model="comments.comment" active></textarea>
+    <br>
     <button  class="btn btn-primary" ng-click="insertcomment('Huawei')">Add Your Comment</button> 
   </form>
 </div>
@@ -75,18 +76,18 @@
               <div class="comment-content">
                 {{el.comment}}
               </div>
-              <input type="checkbox" ng-model="myVar" >reply
+              <input type="checkbox" ng-model="myVar" >replay
               <div ng-show="myVar">
                 <div class="form-group">
                   <label for="usr">You Replay on {{el.username}}</label>
                   <input type="text" ng-model="Reply.reply" class="form-control" placeholder="Replay" required>
-                  <button ng-click="insertReply(el._id)"><i ng-show='bo' class="fa fa-spinner fa-spin"></i>Replay</button>
+                  <button ng-click="insertReply(el._id)" class='btn btn-info' ><i ng-show='bo' class="fa fa-spinner fa-spin"></i>Replay</button>
                   </div>
                 </div>
               </div>         
               <ul class="comments-list reply-list">
                <li>      
-                <div class="comment-avatar"><img src="/Apple/image/reply.jpg" alt="" ></div>
+                <div class="comment-avatar" style=" border-radius: 50%"><img src="/Apple/image/reply.jpg" alt="" ></div>
                 <div class="comment-box" ng-repeat="reply in el.reply track by $index" >
                   <div class="comment-head">
                     <h6 class="comment-name">{{reply.username}}</h6>

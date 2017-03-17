@@ -1,6 +1,6 @@
 <br>
 
-<div class="row" ng-init="getNokiaMobiles('Nokia')">
+<div class="row" ng-init="getLgMobiles('Lg')">
  <div class="col-sm-6 col-md-4" ng-repeat="elment in Mobiles">
    <div class="thumbnail">
      <img class="thumbnail" src={{elment.image}} alt="{{elment.company}}" height="132" width="200">
@@ -51,7 +51,7 @@
   </div>
 
    <textarea class="form-control" rows="3" ng-model="comments.comment" active></textarea>
-    <button  class="btn btn-primary" ng-click="insertcomment('Nokia')">Add Your Comment</button> 
+    <button  class="btn btn-primary" ng-click="insertcomment('Lg')">Add Your Comment</button> 
   </form>
 </div>
 <br>
@@ -63,10 +63,9 @@
       <h1>Comments</h1>
 
       <ul id="comments-list" class="comments-list">
-       <ul id="comments-list" class="comments-list">
         <li>
           <div class="comment-main-level" ng-repeat="el in resevecomment">
-            <div class="comment-avatar"><img src="/image/comment.jpg" alt=""></div>
+            <div class="comment-avatar"><img src="/Apple/image/comment.jpg" alt=""></div>
             <div class="comment-box">
               <div class="comment-head">
                 <h6 class="comment-name by-author">{{el.username}}</h6>
@@ -75,18 +74,22 @@
               <div class="comment-content">
                 {{el.comment}}
               </div>
-              <input type="checkbox" ng-model="myVar" >reply
+              <input type="checkbox" ng-model="myVar" >replay
               <div ng-show="myVar">
                 <div class="form-group">
                   <label for="usr">You Replay on {{el.username}}</label>
                   <input type="text" ng-model="Reply.reply" class="form-control" placeholder="Replay" required>
-                  <button ng-click="insertReply(el._id)">Replay</button>
+                  <button ng-click="insertReply(el._id)" class="btn btn-info"><i ng-show='bo' class="fa fa-spinner fa-spin"></i>Replay</button>
                 </div>
+                <div ng-show="disReply">
+<div class="alert alert-danger">
+  <strong>Sorry!</strong> you must register first.
+</div></div>
               </div>
             </div>         
             <ul class="comments-list reply-list">
              <li>      
-              <div class="comment-avatar"><img src="/image/reply.jpg" alt="" ></div>
+              <div class="comment-avatar" style=" border-radius: 50%"><img src="/Apple/image/reply.jpg" alt="" ></div>
               <div class="comment-box" ng-repeat="reply in el.reply track by $index" >
                 <div class="comment-head">
                   <h6 class="comment-name">{{reply.username}}</h6>

@@ -1,8 +1,9 @@
+
 <div class="form-horizontal">
-  <h2>Add Mobiles</h2>
-  
+  <h2>Add Mobiles</h2> 
   <form class="form-horizontal" ng-submit='addMobile()'>
     <div class="form-group">
+
       <label for="usr">Company</label>
       <input type="text" ng-model="mobileadded.company" class="form-control" placeholder="company" required>
     </div>
@@ -46,7 +47,14 @@
       <label for="pwd">Display</label>
       <input type="text" ng-model="mobileadded.display" class="form-control" placeholder="Display" required>
     </div>
-    <button >Add</button>
+       <div  ng-show="Success">
+      <div class="alert alert-success alert-dismissable">
+    <a href="#/" class="close" data-dismiss="alert" aria-label="close">X</a>
+    <strong>Success!</strong> add new mobile.
+  </div>
+    </div>
+    
+    <button class="btn btn-primary">Add</button>
   </form>
 </div>
 

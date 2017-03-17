@@ -40,17 +40,17 @@
    </div>
 
  </div>
-  <hr width=100% align=left style="color:black">
+ <hr width=100% align=left style="color:black">
 
  <div>
    <form method="post" >
-   <div ng-show="ttt">
-   <div class="alert alert-danger">
-    <strong>Warning!</strong> Please Signin first.
-  </div>
-  </div>
+     <div ng-show="ttt">
+       <div class="alert alert-danger">
+        <strong>Warning!</strong> Please Signin first.
+      </div>
+    </div>
 
-   <textarea class="form-control" rows="3" ng-model="comments.comment" active></textarea>
+    <textarea class="form-control" rows="3" ng-model="comments.comment" active></textarea>
     <button  class="btn btn-primary" ng-click="insertcomment('Samsung')">Add Your Comment</button> 
   </form>
 </div>
@@ -76,27 +76,30 @@
               </div>
               <input type="checkbox" ng-model="myVar" >reply
               <div ng-show="myVar">
-                <input type="text" ng-model="Reply.reply">
-                <button ng-click="insertReply(el._id)">Reply</button>
+                <div class="form-group">
+                  <label for="usr">You Replay on {{el.username}}</label>
+                  <input type="text" ng-model="Reply.reply" class="form-control" placeholder="Replay" required>
+                  <button ng-click="insertReply(el._id)">Replay</button>
+                </div>
               </div>
             </div>         
-          <ul class="comments-list reply-list">
-           <li>      
-            <div class="comment-avatar"><img src="/Apple/image/reply.jpg" alt="" ></div>
-            <div class="comment-box" ng-repeat="reply in el.reply track by $index" >
-              <div class="comment-head">
-                <h6 class="comment-name">{{reply.username}}</h6>
-                <span>hace 10 minutos</span>
-                <i class="fa fa-reply"></i>
+            <ul class="comments-list reply-list">
+             <li>      
+              <div class="comment-avatar"><img src="/Apple/image/reply.jpg" alt="" ></div>
+              <div class="comment-box" ng-repeat="reply in el.reply track by $index" >
+                <div class="comment-head">
+                  <h6 class="comment-name">{{reply.username}}</h6>
+                  <span>hace 10 minutos</span>
+                  <i class="fa fa-reply"></i>
+                </div>
+                <div class="comment-content">
+                  {{reply.reply}}
+                </div>
+                <br>
               </div>
-              <div class="comment-content">
-                {{reply.reply}}
-              </div>
-          <br>
-            </div>
-          </li>
-        </ul>
-         </div>
+            </li>
+          </ul>
+        </div>
       </li>
     </ul>
   </div>

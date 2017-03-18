@@ -9,6 +9,7 @@ app.controller('Huawei‬‏Ctrl', function($scope, serv,$window) {
 	$scope.mobile = [];
 	$scope.ttt = false;
 	$scope.disReply = false;
+	$scope.bo = false;
 	$scope.getHuaweiMobiles = function(Huawei) {
 		serv.getMobileByCompanyName(Huawei).then(function(data) {
 			console.log(data)
@@ -23,6 +24,7 @@ app.controller('Huawei‬‏Ctrl', function($scope, serv,$window) {
 	};
 	$scope.getComments = ()=>{
 		serv.getComments($scope.Mobiles[0].company).then((data)=>{
+			$scope.bo = false;
 			$scope.resevecomment = data;
 		})
 		.catch((error)=> {
@@ -50,6 +52,7 @@ app.controller('Huawei‬‏Ctrl', function($scope, serv,$window) {
 	$scope.insertReply = (id,username)=>{
 		let token = $window.localStorage.getItem('MobileSmart');
 		if(token){
+			$scope.bo = true;
 			$scope.disReply = false;
 		$scope.Reply.id = id;
 		$scope.Reply.username = username

@@ -2,7 +2,7 @@
 	<div class="row" style="margin-top:35px">
 		<div  class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3" align="center">
 			<img alt="Brand" src="image/logo.png" class="img-responsive" >
-	<hr class="colorgraph">
+			<hr class="colorgraph">
 		</div>
 		<div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 			<form role="form" name="signupForm" ng-submit='signup()'>
@@ -10,6 +10,7 @@
 					<h3 class="head">Signup</h3>
 					<hr class="colorgraph">
 					<div class="form-group">
+<<<<<<< HEAD
 						<input type="text" name="username" id="username" class="form-control input-lg" placeholder="User Name" ng-model='user.username' required="">
 					</div>
 					<div class="form-group">
@@ -17,6 +18,29 @@
 					</div>
 					<div class="form-group">
 						<input type="text" name="email" id="email" class="form-control input-lg" placeholder="Email Address" ng-model='user.email' required="">
+=======
+						<div ng-show="userIsExest">
+							<div class="alert alert-danger">
+							<strong>Sorry!</strong>  this account exist.
+							</div>
+						</div>
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-user"></span>
+						</span>
+						<input type="text" name="username" id="username" class="form-control input-lg" placeholder="User Name" ng-model='user.username'>
+					</div>
+					<div class="form-group">
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-lock"></span>
+						</span>
+						<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" ng-model='user.password'>
+					</div>
+					<div class="form-group">
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-envelope"></span>
+						</span>
+						<input type="text" name="email" id="email" class="form-control input-lg" placeholder="Email Address" ng-model='user.email'>
+>>>>>>> 143a3132c753f09af36c0204b76b3040a9cd3e54
 					</div>
 					<hr class="colorgraph">
 					<div class="row">

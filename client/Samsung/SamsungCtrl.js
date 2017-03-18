@@ -7,6 +7,7 @@ app.controller('SamsungCtrl', function($scope, serv,$window) {
 	$scope.Reply = {};
 	$scope.mobile = [];
 	$scope.ttt = false;
+	$scope.bo = false;
 
 	$scope.getSamsungMobiles = function(Samsung) {
 		serv.getMobileByCompanyName(Samsung).then(function(data) {
@@ -24,6 +25,8 @@ app.controller('SamsungCtrl', function($scope, serv,$window) {
 	$scope.getComments = ()=>{
 		serv.getComments($scope.Mobiles[0].company)
 		.then((data)=>{
+			$scope.bo = false;
+			
 			$scope.resevecomment = data;
 		})
 		.catch((error)=> {
@@ -54,6 +57,7 @@ app.controller('SamsungCtrl', function($scope, serv,$window) {
 		let token = $window.localStorage.getItem('MobileSmart');
 		if(token){
 			$scope.disReply = false;
+			$scope.bo = true;
 		$scope.Reply.id = id;
 		$scope.Reply.username = username
 		serv.insertReply($scope.Reply).then(()=>{

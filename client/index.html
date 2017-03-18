@@ -14,7 +14,7 @@
     <script src="Samsung/SamsungCtrl.js"></script>
     <script src="Apple/Apple.js"></script>
     <script src="Huawei‬‏/Huawei‬‏.js"></script>
-    <script src="nokia/nokia.js"></script>
+    <script src="Nokia/Nokia.js"></script>
     <script src="singup/singup.js"></script>
     <script src="lg/lg.js"></script>
     <script src="services/services.js"></script>
@@ -22,8 +22,7 @@
     <script src="signout/signout.js"></script>
     <script src="app.js"></script>
     <script src="AddMobiles/addmobiles.js"></script>
-    <script src="main/main.js"></script>
-    
+    <script src="main/main.js"></script> 
 </head>
 
 <body ng-app ="MobileSmart">
@@ -61,7 +60,7 @@
 
 <script>
     $(document).ready(function(){
-     $(window).scroll(function () {
+       $(window).scroll(function () {
         if ($(this).scrollTop() > 50) {
             $('#back-to-top').fadeIn();
         } else {
@@ -73,7 +72,7 @@
             $('#back-to-top').tooltip('hide');
             $('body,html').animate({
                 scrollTop: 0
-            }, 1800);
+            }, 1200);
             return false;
         });
         

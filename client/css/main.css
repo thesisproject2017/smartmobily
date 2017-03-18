@@ -125,3 +125,14 @@ border: 0px;
 .span {
   color: blue;
 }
+
+.modal
+{
+position: fixed;
+left: 25%;
+}
+
+.marquee{
+background-color: #007D9D
+
+}

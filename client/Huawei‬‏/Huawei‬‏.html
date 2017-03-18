@@ -81,31 +81,36 @@
                 <div class="form-group">
                   <label for="usr">You Replay on {{el.username}}</label>
                   <input type="text" ng-model="Reply.reply" class="form-control" placeholder="Replay" required>
+                  <div ng-show="disReply">  
+                    <div class="alert alert-danger">
+                      <strong>Sorry!</strong> You should sign in .
+                    </div>
+                  </div>
                   <button ng-click="insertReply(el._id)" class='btn btn-info' ><i ng-show='bo' class="fa fa-spinner fa-spin"></i>Replay</button>
-                  </div>
                 </div>
-              </div>         
-              <ul class="comments-list reply-list">
-               <li>      
-                <div class="comment-avatar" style=" border-radius: 50%"><img src="/Apple/image/reply.jpg" alt="" ></div>
-                <div class="comment-box" ng-repeat="reply in el.reply track by $index" >
-                  <div class="comment-head">
-                    <h6 class="comment-name">{{reply.username}}</h6>
-                    <span>hace 10 minutos</span>
-                    <i class="fa fa-reply"></i>
-                  </div>
-                  <div class="comment-content">
-                    {{reply.reply}}
-                  </div>
-                  <br>
+              </div>
+            </div>         
+            <ul class="comments-list reply-list">
+             <li>      
+              <div class="comment-avatar" style=" border-radius: 50%"><img src="/Apple/image/reply.jpg" alt="" ></div>
+              <div class="comment-box" ng-repeat="reply in el.reply track by $index" >
+                <div class="comment-head">
+                  <h6 class="comment-name">{{reply.username}}</h6>
+                  <span>hace 10 minutos</span>
+                  <i class="fa fa-reply"></i>
                 </div>
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </div>
+                <div class="comment-content">
+                  {{reply.reply}}
+                </div>
+                <br>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
   </div>
+</div>
 </div>
 </div>
 </div>

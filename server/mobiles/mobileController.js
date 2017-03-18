@@ -40,21 +40,22 @@ module.exports = {
                         Users.find({},function(err,data){
                             for(let i of data){
                                 emails.push(i.email)
+                                console.log(i.email)
                             }
                             var transporter = nodemailer.createTransport({
                              service: 'gmail',
                              auth: {
-                                 user: 'smartmobaiytech@gmail.com', 
-                                 pass: 'kaka2013' 
+                                 user: 'smartmobilytech@gmail.com', 
+                                 pass: 'mosm1234' 
                              }
                          });
 
                             var mailOptions = {
-                              from: 'smartmobaiytech@gmail.com', 
+                              from: 'smartmobilytech@gmail.com', 
                               to: emails, 
                               subject: 'Email Example',
                               text: "hi come to us to see the new Mobile",
-                              html: '<b>hi come to us to see the new Mobile✔</b>' 
+                               html: '<b>hi come to us to see the new Mobile✔</b>' 
                           };
                           transporter.sendMail(mailOptions, function(error, info){
                               if(error){

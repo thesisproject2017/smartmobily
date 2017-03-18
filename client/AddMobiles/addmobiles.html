@@ -1,6 +1,12 @@
 
 <div class="form-horizontal">
   <h2>Add Mobiles</h2> 
+   <div ng-show="fail">
+  <div class="alert alert-danger alert-dismissable fade in">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.
+  </div>
+</div>
   <form class="form-horizontal" ng-submit='addMobile()'>
     <div class="form-group">
 

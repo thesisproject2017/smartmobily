@@ -26,6 +26,7 @@ app.controller('SamsungCtrl', function($scope, serv,$window) {
 		serv.getComments($scope.Mobiles[0].company)
 		.then((data)=>{
 			$scope.bo = false;
+			
 			$scope.resevecomment = data;
 		})
 		.catch((error)=> {

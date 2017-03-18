@@ -16,7 +16,7 @@ angular.module('MobileSmart', [
 .config(function($routeProvider, $httpProvider, $locationProvider) {
 	$routeProvider
 	.when('/nokia', {
-		templateUrl: 'nokia/Nokia.html',
+		templateUrl: 'Nokia/Nokia.html',
 		controller: 'nokiaCtrl'
 	})
 	.when('/lg', {

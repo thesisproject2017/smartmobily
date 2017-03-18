@@ -1,15 +1,15 @@
-var app = angular.module('MobileSmart.Samsung', []);
-
-app.controller('SamsungCtrl', function($scope, serv,$window) {
+var app=angular.module('MobileSmart.lg',[]);
+app.controller('lgCtrl', function($scope, serv,$window) {
 	$scope.Mobiles = [];
 	$scope.comments = {};
 	$scope.resevecomment = [];
 	$scope.Reply = {};
+	$scope.temp = {};
 	$scope.mobile = [];
 	$scope.ttt = false;
-
-	$scope.getSamsungMobiles = function(Samsung) {
-		serv.getMobileByCompanyName(Samsung).then(function(data) {
+	$scope.disReply = false;
+	$scope.getLgMobiles = function(Lg) {
+		serv.getMobileByCompanyName(Lg).then(function(data) {
 			console.log(data)
 			for(let i = 0; i< data.length; i++) {
 				$scope.Mobiles.push(data[i]);
@@ -20,10 +20,8 @@ app.controller('SamsungCtrl', function($scope, serv,$window) {
 			console.error(error);
 		});
 	};
-
 	$scope.getComments = ()=>{
-		serv.getComments($scope.Mobiles[0].company)
-		.then((data)=>{
+		serv.getComments($scope.Mobiles[0].company).then((data)=>{
 			$scope.resevecomment = data;
 		})
 		.catch((error)=> {
@@ -38,8 +36,7 @@ app.controller('SamsungCtrl', function($scope, serv,$window) {
 		if(token){
 			$scope.ttt = false;
 			$scope.comments.company = $scope.Mobiles[0].company
-			serv.insertComment($scope.comments)
-			.then(()=>{
+			serv.insertComment($scope.comments).then(()=>{
 				$scope.getComments();	
 			})
 			.catch((error)=> {
@@ -49,7 +46,6 @@ app.controller('SamsungCtrl', function($scope, serv,$window) {
 			$scope.ttt = true		
 		}
 	};
-
 	$scope.insertReply = (id,username)=>{
 		let token = $window.localStorage.getItem('MobileSmart');
 		if(token){
@@ -67,18 +63,16 @@ app.controller('SamsungCtrl', function($scope, serv,$window) {
 
 	}
 	};
-
 	$scope.viewMobile = function(id){
 		var mop = $scope.Mobiles,temp;
-
 		for(var i = 0; i< mop.length ; i++){
 			if(id === mop[i]._id){
-				$scope.mobile.push(mop[i]);
+				$scope.mobile.push(mop[i])
 			}
 		}
 	}
 
 	$scope.popMobile = function(){
-		$scope.mobile.pop();
+		$scope.mobile.pop()
 	}
 });

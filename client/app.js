@@ -5,7 +5,9 @@ angular.module('MobileSmart', [
 	'MobileSmart.Samsung',
 	'MobileSmart.Apple',
 	'MobileSmart.Huawei',
-	 'MobileSmart.signout',
+	'MobileSmart.nokia',
+	'MobileSmart.lg',
+	'MobileSmart.signout',
 	'MobileSmart.signin',
 	'MobileSmart.singup',
 	'ngRoute'
@@ -13,6 +15,14 @@ angular.module('MobileSmart', [
 
 .config(function($routeProvider, $httpProvider, $locationProvider) {
 	$routeProvider
+	.when('/nokia', {
+		templateUrl: 'nokia/nokia.html',
+		controller: 'nokiaCtrl'
+	})
+	.when('/lg', {
+		templateUrl: 'lg/lg.html',
+		controller: 'lgCtrl'
+	})
 	.when('/Samsung', {
 		templateUrl: 'Samsung/Samsung.html',
 		controller: 'SamsungCtrl'

@@ -40,38 +40,70 @@
    </div>
 
  </div>
-  <hr width=100% align=left style="color:black">
+ <hr width=100% align=left style="color:black">
 
  <div>
    <form method="post" >
-   <div ng-show="ttt">
-   <div class="alert alert-danger">
-    <strong>Warning!</strong> Please Signin first.
-  </div>
-  </div>
+     <div ng-show="ttt">
+       <div class="alert alert-danger">
+        <strong>Warning!</strong> Please Signin first.
+      </div>
+    </div>
 
-   <textarea class="form-control" rows="3" ng-model="comments.comment" active></textarea>
+    <textarea class="form-control" rows="3" ng-model="comments.comment" active></textarea>
     <button  class="btn btn-primary" ng-click="insertcomment('Samsung')">Add Your Comment</button> 
   </form>
 </div>
 <br>
 <hr  noshade>
-<div ng-repeat="el in resevecomment">
-  <ul>
-    <li> <p>{{el.username}}</p>
-      <p>{{el.comment}}</p>
-      <input type="checkbox" ng-model="myVar" >reply
-      <div ng-show="myVar">
-        <input type="text" ng-model="Reply.reply">
-        <button ng-click="insertReply(el._id,el.username)">Reply</button>
-      </div>
-      <div ng-repeat="reply in el.reply track by $index">
-        <p style="color:red">{{reply.username}}</p> 
-        <p style="color: blue">{{reply.reply}}</p>
-      </div></div>
-    </li>
-  </ul>
-</div>
-</div>
-</div>
+<div class="container">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+  <div class="row">
+    <div class="comments-container">
+      <h1>Comments</h1>
 
+      <ul id="comments-list" class="comments-list">
+        <li>
+          <div class="comment-main-level" ng-repeat="el in resevecomment">
+            <div class="comment-avatar"><img src="/Apple/image/comment.jpg" alt=""></div>
+            <div class="comment-box">
+              <div class="comment-head">
+                <h6 class="comment-name by-author">{{el.username}}</h6>
+                <span>hace 20 minutos</span>
+              </div>
+              <div class="comment-content">
+                {{el.comment}}
+              </div>
+              <input type="checkbox" ng-model="myVar" >reply
+              <div ng-show="myVar">
+                <div class="form-group">
+                  <label for="usr">You Replay on {{el.username}}</label>
+                  <input type="text" ng-model="Reply.reply" class="form-control" placeholder="Replay" required>
+                  <button ng-click="insertReply(el._id)">Replay</button>
+                </div>
+              </div>
+            </div>         
+            <ul class="comments-list reply-list">
+             <li>      
+              <div class="comment-avatar"><img src="/Apple/image/reply.jpg" alt="" ></div>
+              <div class="comment-box" ng-repeat="reply in el.reply track by $index" >
+                <div class="comment-head">
+                  <h6 class="comment-name">{{reply.username}}</h6>
+                  <span>hace 10 minutos</span>
+                  <i class="fa fa-reply"></i>
+                </div>
+                <div class="comment-content">
+                  {{reply.reply}}
+                </div>
+                <br>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+</div>

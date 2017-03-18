@@ -6,40 +6,45 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
     <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="image/favicon.ico" sizes="32x32" />
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="./css/commentsAndReplys.css">
     <script src="Samsung/SamsungCtrl.js"></script>
     <script src="Apple/Apple.js"></script>
     <script src="Huawei‬‏/Huawei‬‏.js"></script>
+    <script src="nokia/nokia.js"></script>
     <script src="singup/singup.js"></script>
+    <script src="lg/lg.js"></script>
     <script src="services/services.js"></script>
     <script src="signin/signin.js"></script>
     <script src="signout/signout.js"></script>
     <script src="app.js"></script>
     <script src="AddMobiles/addmobiles.js"></script>
-    <script src="main/main.js"></script>   
+    <script src="main/main.js"></script>
+    <script src="/socket.io/socket.io.js"></script>   
 </head>
 
 <body ng-app ="MobileSmart">
- <!-- menu bar -->
-<div class="navbar-wrapper">
+   <!-- menu bar -->
+   <div class="navbar-wrapper">
     <div class="container-fluid">
         <nav class="navbar navbar-fixed-top">
             <div class="container">
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                     <img src="image/logo1.png" class="img-responsive1"/>
-                 </ul> 
-                 <ul class="nav navbar-nav">
+                       <img src="image/logo1.png" class="img-responsive1"/>
+                   </ul> 
+                   <ul class="nav navbar-nav">
                     <li class="active"><a href="#/main" class="">Home Page</a></li>
                     <li><a href="#/Samsung">Samsung</a></li>
                     <li><a href="#/Apple">Apple</a></li>
-                    <li><a href="#/Huawei">Huawei</a></li>  
+                    <li><a href="#/Huawei">Huawei</a></li>
+                    <li><a href="#/lg">Lg</a></li>
+                    <li><a href="#/nokia">Nokia</a></li>  
                 </ul>
                 <ul class="nav navbar-nav pull-right">
-                <!-- <li><a href="#/AddMobiles">Add Mobiles</a></li> -->
                     <li class=""><a href="#/singup">singup</a></li>
                     <li class=""><a href="#/signin">signin</a></li>
                     <li class=""><a href="#/signout">signout</a></li>
@@ -54,25 +59,25 @@
 <script src="/bower_components/jquery/dist/jquery.js"></script>
 <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>    
 <script>
-$(document).ready(function(){
-     $(window).scroll(function () {
-            if ($(this).scrollTop() > 50) {
-                $('#back-to-top').fadeIn();
-            } else {
-                $('#back-to-top').fadeOut();
-            }
-        });
+    $(document).ready(function(){
+       $(window).scroll(function () {
+        if ($(this).scrollTop() > 50) {
+            $('#back-to-top').fadeIn();
+        } else {
+            $('#back-to-top').fadeOut();
+        }
+    });
         // scroll body to 0px on click
         $('#back-to-top').click(function () {
             $('#back-to-top').tooltip('hide');
             $('body,html').animate({
                 scrollTop: 0
-            }, 3000);
+            }, 1800);
             return false;
         });
         
         $('#back-to-top').tooltip('show');
-});
+    });
 </script>
 </body>
 </html>

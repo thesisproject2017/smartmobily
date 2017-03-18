@@ -73,7 +73,7 @@ angular.module('MobileSmart.services', [])
 				method : 'GET',
 				url : '/api/comment/comment/'+company
 			})
-			.then((res)=>{console.log(res.data)
+			.then((res)=>{
 				return res.data
 			})
 		},

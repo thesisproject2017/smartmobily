@@ -6,18 +6,18 @@ app.controller('SamsungCtrl', function($scope, serv,$window) {
 	$scope.resevecomment = [];
 	$scope.Reply = {};
 	$scope.mobile = [];
-	$scope.ttt = false;
-	$scope.bo = false;
+	$scope.signinFirst = false;
+	$scope.load = false;
+	$scope.displayReply = false;
 
-	$scope.getSamsungMobiles = function(Samsung) {
-		serv.getMobileByCompanyName(Samsung).then(function(data) {
-			console.log(data)
+	$scope.getSamsungMobiles = (Samsung)=> {
+		serv.getMobileByCompanyName(Samsung).then((data)=> {
 			for(let i = 0; i< data.length; i++) {
 				$scope.Mobiles.push(data[i]);
 				$scope.getComments();
 			}
 		})
-		.catch(function(error) {
+		.catch((error)=> {
 			console.error(error);
 		});
 	};
@@ -25,7 +25,7 @@ app.controller('SamsungCtrl', function($scope, serv,$window) {
 	$scope.getComments = ()=>{
 		serv.getComments($scope.Mobiles[0].company)
 		.then((data)=>{
-			$scope.bo = false;
+			$scope.load = false;
 			
 			$scope.resevecomment = data;
 		})
@@ -34,12 +34,12 @@ app.controller('SamsungCtrl', function($scope, serv,$window) {
 		})
 	};
 
-	$scope.insertcomment = (ttt)=>{
+	$scope.insertcomment = (signinFirst)=>{
 
 		let token = $window.localStorage.getItem('MobileSmart');
 
 		if(token){
-			$scope.ttt = false;
+			$scope.signinFirst = false;
 			$scope.comments.company = $scope.Mobiles[0].company
 			serv.insertComment($scope.comments)
 			.then(()=>{
@@ -49,31 +49,31 @@ app.controller('SamsungCtrl', function($scope, serv,$window) {
 				console.error(error);
 			})
 		}else{
-			$scope.ttt = true		
+			$scope.signinFirst = true		
 		}
 	};
 
 	$scope.insertReply = (id,username)=>{
 		let token = $window.localStorage.getItem('MobileSmart');
 		if(token){
-			$scope.disReply = false;
-			$scope.bo = true;
-		$scope.Reply.id = id;
-		$scope.Reply.username = username
-		serv.insertReply($scope.Reply).then(()=>{
-			$scope.getComments()
-		})
-		.catch((error)=> {
-			console.error(error);
-		})
-	}else{
-			$scope.disReply = true;
+			$scope.displayReply = false;
+			$scope.load = true;
+			$scope.Reply.id = id;
+			$scope.Reply.username = username
+			serv.insertReply($scope.Reply).then(()=>{
+				$scope.getComments()
+			})
+			.catch((error)=> {
+				console.error(error);
+			})
+		}else{
+			$scope.displayReply = true;
 
-	}
+		}
 	};
 
-	$scope.viewMobile = function(id){
-		var mop = $scope.Mobiles,temp;
+	$scope.viewMobile = (id)=>{
+		var mop = $scope.Mobiles;
 
 		for(var i = 0; i< mop.length ; i++){
 			if(id === mop[i]._id){
@@ -82,7 +82,7 @@ app.controller('SamsungCtrl', function($scope, serv,$window) {
 		}
 	}
 
-	$scope.popMobile = function(){
+	$scope.popMobile = ()=>{
 		$scope.mobile.pop();
 	}
 });

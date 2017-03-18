@@ -7,28 +7,28 @@ module.exports = {
   token = jwt.decode(token,'secret')
   let username =  token.split('&')[1]
   let reply = req.body.reply
- let commantId = req.body.id
+  let commantId = req.body.id
 
   let newReply = new Reply({
     username: username,
     reply:reply,
     commantId : commantId
-});
+  });
   newReply.save((err, newReply)=> {
     if(err) {
-        res.status(500).send(err);
+      res.status(500).send(err);
     }else{
      res.json(newReply);
- }
-});
+   }
+ });
 },
 reseveReplys : (req, res)=>{
-    Reply.find({_id:req.body.id},(err,replys)=>{
-        if(err){
-            console.log(err)
-        }else{
-            res.json(replys)
-        }
-    })
+  Reply.find({_id:req.body.id},(err,replys)=>{
+    if(err){
+      console.log(err)
+    }else{
+      res.json(replys)
+    }
+  })
 }
 }

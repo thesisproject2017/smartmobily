@@ -1,16 +1,16 @@
 var app=angular.module('MobileSmart.lg',[]);
 app.controller('lgCtrl', function($scope, serv,$window) {
-	$scope.Mobiles = [];
+$scope.Mobiles = [];
 	$scope.comments = {};
 	$scope.resevecomment = [];
 	$scope.Reply = {};
-	$scope.temp = {};
 	$scope.mobile = [];
-	$scope.ttt = false;
-	$scope.disReply = false;
+	$scope.signinFirst = false;
+	$scope.displayReply = false;
+	$scope.load = false;
+	
 	$scope.getLgMobiles = function(Lg) {
 		serv.getMobileByCompanyName(Lg).then(function(data) {
-			console.log(data)
 			for(let i = 0; i< data.length; i++) {
 				$scope.Mobiles.push(data[i]);
 				$scope.getComments();
@@ -22,6 +22,8 @@ app.controller('lgCtrl', function($scope, serv,$window) {
 	};
 	$scope.getComments = ()=>{
 		serv.getComments($scope.Mobiles[0].company).then((data)=>{
+			$scope.load = false;
+
 			$scope.resevecomment = data;
 		})
 		.catch((error)=> {
@@ -29,12 +31,10 @@ app.controller('lgCtrl', function($scope, serv,$window) {
 		})
 	};
 
-	$scope.insertcomment = (ttt)=>{
-
+	$scope.insertcomment = (signinFirst)=>{
 		let token = $window.localStorage.getItem('MobileSmart');
-
 		if(token){
-			$scope.ttt = false;
+			$scope.signinFirst = false;
 			$scope.comments.company = $scope.Mobiles[0].company
 			serv.insertComment($scope.comments).then(()=>{
 				$scope.getComments();	
@@ -43,13 +43,16 @@ app.controller('lgCtrl', function($scope, serv,$window) {
 				console.error(error);
 			})
 		}else{
-			$scope.ttt = true		
+			$scope.signinFirst = true		
 		}
 	};
+
+
 	$scope.insertReply = (id,username)=>{
 		let token = $window.localStorage.getItem('MobileSmart');
 		if(token){
-			$scope.disReply = false;
+			$scope.load = true;
+			$scope.displayReply = false;
 		$scope.Reply.id = id;
 		$scope.Reply.username = username
 		serv.insertReply($scope.Reply).then(()=>{
@@ -59,12 +62,13 @@ app.controller('lgCtrl', function($scope, serv,$window) {
 			console.error(error);
 		})
 	}else{
-			$scope.disReply = true;
+			$scope.displayReply = true;
 
 	}
 	};
+
 	$scope.viewMobile = function(id){
-		var mop = $scope.Mobiles,temp;
+		var mop = $scope.Mobiles;
 		for(var i = 0; i< mop.length ; i++){
 			if(id === mop[i]._id){
 				$scope.mobile.push(mop[i])

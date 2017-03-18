@@ -6,9 +6,9 @@ let replySchema = new mongoose.Schema({
 	username:String,
 
 	reply:String,
-	//commantId:String,
 	commantId:{type: mongoose.Schema.Types.ObjectId,
-	  ref: 'comment'}
+	  ref: 'comment'
+	}
 });
 
 

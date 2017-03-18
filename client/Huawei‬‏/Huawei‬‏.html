@@ -44,7 +44,7 @@
 
  <div>
    <form method="post" >
-     <div ng-show="ttt">
+     <div ng-show="signinFirst">
        <div class="alert alert-danger">
         <strong>Warning!</strong> Please Signin first.
       </div>
@@ -81,12 +81,12 @@
                 <div class="form-group">
                   <label for="usr">You Replay on {{el.username}}</label>
                   <input type="text" ng-model="Reply.reply" class="form-control" placeholder="Replay" required>
-                  <div ng-show="disReply">  
+                  <div ng-show="displayReply">  
                     <div class="alert alert-danger">
                       <strong>Sorry!</strong> You should sign in .
                     </div>
                   </div>
-                  <button ng-click="insertReply(el._id)" class='btn btn-info' ><i ng-show='bo' class="fa fa-spinner fa-spin"></i>Replay</button>
+                  <button ng-click="insertReply(el._id)" class='btn btn-info' ><i ng-show='load' class="fa fa-spinner fa-spin"></i>Replay</button>
                 </div>
               </div>
             </div>         

@@ -6,9 +6,8 @@ app.controller('addMobilesCtrl',function($scope,serv){
 	
 	$scope.addMobile=function(){
 		serv.insertMobile($scope.mobileadded).then(function(data){
-			console.log(data)
 			$scope.Success = true;
-			$scope.fail = false
+			$scope.fail = false;
 			$scope.mobileadded=data;
 			
 		})

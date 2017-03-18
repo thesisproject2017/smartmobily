@@ -1,5 +1,4 @@
 <br>
-
 <div class="row" ng-init="getAppleMobiles('Apple')">
  <div class="col-sm-6 col-md-4" ng-repeat="elment in Mobiles">
    <div class="thumbnail">
@@ -8,7 +7,6 @@
        <h3>{{elment.name}}</h3>
        <p>{{elment.camera}}</p>
      </div>
-
      <div class="container">
        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModa" ng-click = "viewMobile(elment._id)" class="btn btn-info">details</button>
        <!-- Modal -->
@@ -19,17 +17,16 @@
              <div class="col-sm-7 col-md-5">
                <div class="caption" ng-repeat="elment in mobile">
                  <div class="thumbnail">
-                   <pre></pre>
-                   <p>{{elment.name}}</p>
-                   <p>{{elment.color}}</p>
-                   <p> {{elment.os}}</p>
-                   <p> {{elment.size}}</p>
-                   <p> {{elment.camera}}</p>
-                   <p> {{elment.battery}}</p>
-                   <p> {{elment.memory}}</p>
-                   <p> {{elment.processor}}</p>
-                   <p> {{elment.display}}</p>
-                   <div><button  ng-click=" popMobile()" type="button" class="btn btn-default"  data-dismiss="modal">Close</button></div>
+                   <p><span class="span">Name:</span> {{elment.name}}</p>
+                   <p><span class="span">Color:</span>{{elment.color}}</p>
+                   <p><span class="span">Os:</span> {{elment.os}}</p>
+                   <p><span class="span">Size:</span> {{elment.size}}</p>
+                   <p><span class="span">Camera:</span> {{elment.camera}}</p>
+                   <p><span class="span">Battery:</span> {{elment.battery}}</p>
+                   <p><span class="span">Memory:</span> {{elment.memory}}</p>
+                   <p><span class="span">Processor:</span> {{elment.processor}}</p>
+                   <p><span class="span">Display:</span> {{elment.display}}</p>
+                   <div><button  ng-click=" popMobile()" type="button" class="btn btn-primary"  data-dismiss="modal">Close</button></div>
                  </div>
                </div>
              </div>
@@ -38,10 +35,8 @@
        </div>
      </div>
    </div>
-
  </div>
  <hr width=100% align=left style="color:black">
-
  <div>
    <form method="post" >
      <div ng-show="signinFirst">
@@ -55,7 +50,6 @@
     <button  class="btn btn-primary" ng-click="insertcomment('Huawei')">Add Your Comment</button> 
   </form>
 </div>
-
 <hr  noshade>
 <div class="container">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
@@ -71,7 +65,7 @@
             <div class="comment-box">
               <div class="comment-head">
                 <h6 class="comment-name by-author">{{el.username}}</h6>
-                <span>hace 20 minutos</span>
+                <span>hace 20 minutes</span>
               </div>
               <div class="comment-content">
                 {{el.comment}}
@@ -81,36 +75,36 @@
                 <div class="form-group">
                   <label for="usr">You Replay on {{el.username}}</label>
                   <input type="text" ng-model="Reply.reply" class="form-control" placeholder="Replay" required>
-                     <div ng-show="displayReply">  
-                <div class="alert alert-danger">
-                  <strong>Sorry!</strong> You should sign in .
+                  <div ng-show="displayReply">  
+                    <div class="alert alert-danger">
+                      <strong>Sorry!</strong> You should sign in .
+                    </div>
+                  </div>
+                  <button ng-click="insertReply(el._id)" class='btn btn-info' ><i ng-show='load' class="fa fa-spinner fa-spin"></i>Replay</button>
                 </div>
               </div>
-                  <button ng-click="insertReply(el._id)" class='btn btn-info' ><i ng-show='load' class="fa fa-spinner fa-spin"></i>Replay</button>
-                  </div>
+            </div>         
+            <ul class="comments-list reply-list">
+             <li>      
+              <div class="comment-avatar" style=" border-radius: 50%"><img src="/Apple/image/reply.jpg" alt="" ></div>
+              <div class="comment-box" ng-repeat="reply in el.reply track by $index" >
+                <div class="comment-head">
+                  <h6 class="comment-name">{{reply.username}}</h6>
+                  <span>hace 10 minutos</span>
+                  <i class="fa fa-reply"></i>
                 </div>
-              </div>         
-              <ul class="comments-list reply-list">
-               <li>      
-                <div class="comment-avatar" style=" border-radius: 50%"><img src="/Apple/image/reply.jpg" alt="" ></div>
-                <div class="comment-box" ng-repeat="reply in el.reply track by $index" >
-                  <div class="comment-head">
-                    <h6 class="comment-name">{{reply.username}}</h6>
-                    <span>hace 10 minutos</span>
-                    <i class="fa fa-reply"></i>
-                  </div>
-                  <div class="comment-content">
-                    {{reply.reply}}
-                  </div>
-                  <br>
+                <div class="comment-content">
+                  {{reply.reply}}
                 </div>
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </div>
+                <br>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
   </div>
+</div>
 </div>
 </div>
 </div>

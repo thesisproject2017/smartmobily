@@ -40,7 +40,6 @@ module.exports = {
                         Users.find({},function(err,data){
                             for(let i of data){
                                 emails.push(i.email)
-                                console.log(i.email)
                             }
                             var transporter = nodemailer.createTransport({
                              service: 'gmail',

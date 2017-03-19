@@ -1,5 +1,5 @@
 let Mobile = require('./mobileModel.js');
-let Users = require('../users/usersModel.js')
+let Feed = require('../feed/feed.js')
 var nodemailer = require('nodemailer');
 
 module.exports = {
@@ -47,10 +47,9 @@ module.exports = {
                     if(err) {
                         res.status(500).send(err);
                     }else{
-                        Users.find({},function(err,data){
+                        Feed.find({},function(err,data){
                             for(let i of data){
                                 emails.push(i.email)
-                                console.log(i.email)
                             }
                             var transporter = nodemailer.createTransport({
                              service: 'gmail',

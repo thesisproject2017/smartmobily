@@ -2,8 +2,6 @@ angular.module('MobileSmart.services', [])
 
 .factory('serv', ($http, $location, $window)=> {
 	return {
-
-		
         getAllMobile: ()=> {
 			return $http({
 				method: 'GET',
@@ -14,8 +12,6 @@ angular.module('MobileSmart.services', [])
 			});
 		},
 
-
-
 		getMobileByCompanyName: (company)=> {
 			return $http({
 				method: 'GET',
@@ -25,6 +21,7 @@ angular.module('MobileSmart.services', [])
 				return resb.data;
 			});
 		},
+
 		insertMobile:function(mobile){
 			return $http({
 				method:'POST',
@@ -34,25 +31,20 @@ angular.module('MobileSmart.services', [])
 			.then(function(resp){
 				return resp.data
 			})
-
 		},
+
 		getMobile:function(mobilename){
 			console.log(mobilename)
 			return $http({
 				method:'GET',
-				url:'/api/getmobile/' +  mobilename.name 
+				url:'/api/getmobile/'+ mobilename.name 
 			})
 			.then(function(resp){
 				return resp.data
 			})
-
-
-
-
 		},
 
 		editMobile :function(mobile){
-			console.log(mobile)
 			return $http({
 				method:'POST',
 				url:'/api/edit/',
@@ -62,23 +54,19 @@ angular.module('MobileSmart.services', [])
 				return resp.data
 			})
 		},
+
 		removeMobile :function(mobile){
-         console.log(mobile)
          return $http({
          	method:'POST',
 				url:'/api/remove/',
 				data:mobile
          })
          .then(function(resp){
-				return resp.data
+				return resp.data;
 			})
-
-
-
 		},
 
 		signin: (user)=> {
-
 			return $http({
 				method: 'POST',
 				url: '/api/users/signin',
@@ -121,13 +109,12 @@ angular.module('MobileSmart.services', [])
 		},
 
 		getComments : (company)=>{
-			
 			return $http({
 				method : 'GET',
 				url : '/api/comment/comment/'+company
 			})
 			.then((res)=>{
-				return res.data
+				return res.data;
 			})
 		},
 
@@ -141,6 +128,16 @@ angular.module('MobileSmart.services', [])
 			.then((res)=>{
 				return res.data
 			})
+		},
+		insertNewfeed : (newFeedes)=>{
+			return $http({
+				method: 'POST',
+				url: 'api/feeds/',
+				data: newFeedes
+			})
+			.then((resp)=>{
+				console.log(resp);
+			})
 		}
-	};
+	}
 });

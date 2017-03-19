@@ -14,6 +14,7 @@ module.exports = (app, express)=> {
 	app.post('/api/edit/', mobileController.editMobile);
 	app.get('/api/getmobile/:name', mobileController.getmobile);
 	app.get('/api/mobilesAll/',mobileController.getAllMobiles);
+	app.post('/api/remove/',mobileController.removeMob)
 	// =============================================================================
 	/*								Users Route									 */
 	// =============================================================================

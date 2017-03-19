@@ -14,6 +14,7 @@ app.controller('addMobilesCtrl',function($scope,serv){
 			$scope.Success = true;
 			$scope.fail = false
 			$scope.mobileadded=data;
+			$scope.mobileadded={}
 			
 		})
 		.catch(function(error) {
@@ -29,6 +30,13 @@ app.controller('addMobilesCtrl',function($scope,serv){
 		})
 		
 	},
+	$scope.removeMobile=function(){
+    serv.removeMobile($scope.edited).then(function(data){
+    	console.log(data)
+    })
+	},
+
+
 	$scope.getMobile=function(){
 		serv.getMobile($scope.editMobile).then(function(data){
 			

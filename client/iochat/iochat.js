@@ -1,5 +1,6 @@
 var app = angular.module('MobileSmart.chat', []);
 app.controller('chatCtrl', function($scope, serv) {
+
   $scope.socket = io.connect();
   $scope.message = $('#message');
   $scope.$chat = $('#chat');
@@ -12,6 +13,7 @@ app.controller('chatCtrl', function($scope, serv) {
      if(data){
       $scope.messageArea.show();
     }
+
   });
    $scope.username.val('');
    $scope.socket.on('get users', function(data){

@@ -122,69 +122,12 @@
     
   </form>
 
+  <div>
+    <p> Just put Mobile Name to delete all formation related</p>
+    <input type="text" value="remove"  ng-model="edited.name" placeholder="Mobile Name">
 
-
-<div class="form-horizontal">
-  <h2>Edit Mobiles</h2> 
-   <div ng-show="fail">
-  <div class="alert alert-danger alert-dismissable fade in">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.
+<button ng-click="removeMobile()" >Remove Mobile</button>
   </div>
-</div>
-  <form class="form-horizontal" ng-submit='edit()'>
-    <div class="form-group">
 
-      <label for="usr">Company</label>
-      <input type="text" ng-model="editMobile.company" class="form-control" placeholder="company" required>
-    </div>
-    <div class="form-group">
-      <label for="pwd">Name</label>
-      <input type="text" ng-model="editMobile.name" class="form-control" placeholder="name" required>
-    </div>
-    <div class="form-group">
-      <label for="pwd">Color</label>
-      <input type="text" ng-model="editMobile.color" class="form-control" placeholder="color" required>
-    </div>
-    <div class="form-group">
-      <label for="pwd">Operation System</label>
-      <input type="text" ng-model="editMobile.os" class="form-control" placeholder="Operation System" required>
-    </div>
-    <div class="form-group">
-      <label for="pwd">Size</label>
-      <input type="text" ng-model="editMobile.size" class="form-control" placeholder="Size" required>
-    </div>
-    <div class="form-group">
-      <label for="pwd">Camera</label>
-      <input type="text" ng-model="editMobile.camera" class="form-control" placeholder="Camera" required>
-    </div>
-    <div class="form-group">
-      <label for="pwd">Battery</label>
-      <input type="text" ng-model="editMobile.battery" class="form-control" placeholder="Battery" required>
-    </div>
-    <div class="form-group">
-      <label for="pwd">Memory</label>
-      <input type="text" ng-model="editMobile.memory" class="form-control" placeholder="Memory" required>
-    </div>
-    <div class="form-group">
-      <label for="pwd">Processor</label>
-      <input type="text" ng-model="editMobile.processor" class="form-control" placeholder="Processor" required>
-    </div>
-    <div class="form-group">
-      <label for="pwd">Image</label>
-      <input type="text" ng-model="editMobile.image" class="form-control" placeholder="Image" required>
-    </div>
-    <div class="form-group">
-      <label for="pwd">Display</label>
-      <input type="text" ng-model="editMobile.display" class="form-control" placeholder="Display" required>
-    </div>
-       <div  ng-show="Success">
-      <div class="alert alert-success alert-dismissable">
-    <a href="#/" class="close" data-dismiss="alert" aria-label="close">X</a>
-    <strong>Success!</strong> Edit.
-  </div>
-    </div>
-    
-    <button class="btn btn-primary" value="">Edit</button>
-  </form>
-</div>
+
+

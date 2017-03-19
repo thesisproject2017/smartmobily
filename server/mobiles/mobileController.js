@@ -3,6 +3,7 @@ let Users = require('../users/usersModel.js')
 var nodemailer = require('nodemailer');
 
 module.exports = {
+  
   getAllMobiles: function(req, res) {
         Mobile.find({}, function(err, AllMobile) {
             if(err) {

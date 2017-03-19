@@ -1,7 +1,7 @@
 var app = angular.module('MobileSmart.Huawei', []);
 
 app.controller('Huawei‬‏Ctrl', function($scope, serv,$window) {
-$scope.Mobiles = [];
+	$scope.Mobiles;
 	$scope.comments = {};
 	$scope.resevecomment = [];
 	$scope.Reply = {};
@@ -12,6 +12,7 @@ $scope.Mobiles = [];
 
 	$scope.getHuaweiMobiles = (Huawei)=> {
 		serv.getMobileByCompanyName(Huawei).then((data)=> {
+			$scope.Mobiles=[];
 			for(let i = 0; i< data.length; i++) {
 				$scope.Mobiles.push(data[i]);
 				$scope.getComments();
@@ -54,30 +55,27 @@ $scope.Mobiles = [];
 		if(token){
 			$scope.load = true;
 			$scope.displayReply = false;
-		$scope.Reply.id = id;
-		$scope.Reply.username = username
-		serv.insertReply($scope.Reply).then(()=>{
-			$scope.getComments()
-		})
-		.catch((error)=> {
-			console.error(error);
-		})
-	}else{
+			$scope.Reply.id = id;
+			$scope.Reply.username = username
+			serv.insertReply($scope.Reply).then(()=>{
+				$scope.getComments()
+			})
+			.catch((error)=> {
+				console.error(error);
+			})
+		}else{
 			$scope.displayReply = true;
 
-	}
+		}
 	};
 
 	$scope.viewMobile = (id)=>{
 		var mop = $scope.Mobiles;
+
 		for(var i = 0; i< mop.length ; i++){
 			if(id === mop[i]._id){
-				$scope.mobile.push(mop[i])
+				$scope.mobile = mop[i];
 			}
 		}
-	}
-
-	$scope.popMobile = ()=>{
-		$scope.mobile.pop()
 	}
 });

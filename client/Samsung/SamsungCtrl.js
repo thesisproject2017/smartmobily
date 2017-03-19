@@ -1,7 +1,7 @@
 var app = angular.module('MobileSmart.Samsung', []);
 
 app.controller('SamsungCtrl', function($scope, serv,$window) {
-	$scope.Mobiles = [];
+	$scope.Mobiles;
 	$scope.comments = {};
 	$scope.resevecomment = [];
 	$scope.Reply = {};
@@ -12,6 +12,7 @@ app.controller('SamsungCtrl', function($scope, serv,$window) {
 
 	$scope.getSamsungMobiles = (Samsung)=> {
 		serv.getMobileByCompanyName(Samsung).then((data)=> {
+			$scope.Mobiles = [];
 			for(let i = 0; i< data.length; i++) {
 				$scope.Mobiles.push(data[i]);
 				$scope.getComments();
@@ -77,12 +78,8 @@ app.controller('SamsungCtrl', function($scope, serv,$window) {
 
 		for(var i = 0; i< mop.length ; i++){
 			if(id === mop[i]._id){
-				$scope.mobile.push(mop[i]);
+				$scope.mobile = mop[i];
 			}
 		}
-	}
-
-	$scope.popMobile = ()=>{
-		$scope.mobile.pop();
 	}
 });

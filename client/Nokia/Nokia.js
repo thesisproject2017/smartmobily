@@ -1,6 +1,6 @@
 var app=angular.module('MobileSmart.nokia',[]);
 app.controller('nokiaCtrl', function($scope, serv,$window) {
-	$scope.Mobiles = [];
+	$scope.Mobiles;
 	$scope.comments = {};
 	$scope.resevecomment = [];
 	$scope.Reply = {};
@@ -11,7 +11,7 @@ app.controller('nokiaCtrl', function($scope, serv,$window) {
 	
 	$scope.getNokiaMobiles = (Nokia)=> {
 		serv.getMobileByCompanyName(Nokia).then((data)=> {
-			
+			$scope.Mobiles=[];
 			for(let i = 0; i< data.length; i++) {
 				$scope.Mobiles.push(data[i]);
 				$scope.getComments();
@@ -72,12 +72,8 @@ app.controller('nokiaCtrl', function($scope, serv,$window) {
 		var mop = $scope.Mobiles;
 		for(var i = 0; i< mop.length ; i++){
 			if(id === mop[i]._id){
-				$scope.mobile.push(mop[i])
+				$scope.mobile = mop[i]
 			}
 		}
-	}
-
-	$scope.popMobile = function(){
-		$scope.mobile.pop();
 	}
 });

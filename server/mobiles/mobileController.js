@@ -3,15 +3,6 @@ let Users = require('../users/usersModel.js')
 var nodemailer = require('nodemailer');
 
 module.exports = {
-    getAllMobiles: function(req, res) {
-        Mobile.find({}, function(err, AllMobile) {
-            if(err) {
-                res.status(500).send('err');
-            }else{
-                res.json(AllMobile);
-            }
-        });
-    },
     getAllMobile: function(req, res) {
         Mobile.find({company: req.params.company}, function(err, AllMobile) {
             if(err) {
@@ -49,6 +40,7 @@ module.exports = {
                         Users.find({},function(err,data){
                             for(let i of data){
                                 emails.push(i.email)
+                                console.log(i.email)
                             }
                             var transporter = nodemailer.createTransport({
                              service: 'gmail',
@@ -79,4 +71,31 @@ module.exports = {
             }
         });
     },
+    editMobile : function(req,res){
+      console.log(req.body)
+      var id=req.body.id;
+      delete req.body['id'];
+      
+      Mobile.update({_id:id},req.body,function(err,data){
+        if (err){
+          res.json(err)
+        }else{
+          res.json("updated done!!")
+        }
+      })
+      
+      
+  },
+  getmobile :function(req,res){
+    var name=req.params.name;
+    console.log(name)
+    Mobile.findOne({name:name},function(err,mobile){
+      console.log(mobile)
+      if(err) {
+                res.status(500).send('err');
+            }else{
+                res.json(mobile);
+            }
+    })
+  }
 };

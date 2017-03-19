@@ -1,36 +1,49 @@
-var server = require('http').createServer(app)
-var io = require('socket.io').listen(server)
+var app = angular.module('MobileSmart.chat', []);
+app.controller('chatCtrl', function($scope, serv) {
+    $scope.socket = io.connect();
+        $scope.$messageForm = $('#messageForm');
+        $scope.$message = $('#message');
+        $scope.$chat = $('#chat');
+        $scope.$messageArea = $('#messageArea');
+        $scope.$userFormArea = $('#userFormArea');
+        $scope.$userForm = $('#userForm');
+        $scope.$users = $('#users')
+        $scope.$username = $('#username');
+   
 
-users= [];
-connections = [] ;
-	
-io.sockets.on('connection', function(socket){
-	connections.push(socket);
-	console.log('connected: %s socket connected', connections.length);
-
-	//disconnect
-	socket.on('disconnect', function(){
-		users.splice(users.indexOf(socket.username), 1);
-		updateUsernames();
-	connections.splice(connections.indexOf(socket), 1);
-	console.log('Disconnected: %s socket disconnected', connections.length);	
-	});
-	socket.on('send message', function(data){
-		console.log(data)
-		io.sockets.emit('new message', {msg: data, user:socket.username});
-	});
-	// New user
-	socket.on('new user', function(data, callback){
-        callback(true);
-        socket.username = data;
-        users.push(socket.username);
-        updateUsernames();
-	});
-	function updateUsernames(){
-		io.sockets.emit('get users', users);
-	}
-});
+  $scope.chat =function(){
+   console.log($scope.$username.val())
+       //   e.preventDefault();
+          $scope.socket.emit('new user', $scope.$username.val(), function(data){
+                       if(data){
+                        $scope.$messageArea.show();
+                       /* $userFormArea.hide();*/
+                       }
+          });
+          $scope.$username.val('');
 
 
+        $scope.socket.on('get users', function(data){
+          var html = '';
+          for (var i = 0; i < data.length; i++) {
+            html += '<li class="list-group-item">'+data[i]+'</li>';
+          }
+          $scope.$users.html(html);
+        });
+  }
 
+  $scope.msg1 = function(){
+  console.log("welcome")
+          $scope.socket.emit('send message', $scope.$message.val());
+          $scope.$message.val('')
 
+        $scope.socket.on('new message', function(data){
+          $scope.$chat.append('<div class="well"><strong>'+data.user+'</strong>:'+data.msg+'</div>')
+        });
+  }
+      
+  
+
+        
+      
+})

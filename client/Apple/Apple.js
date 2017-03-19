@@ -71,7 +71,6 @@ app.controller('AppleCtrl', function($scope, serv,$window) {
 
 	$scope.viewMobile = (id)=>{
 		var mop = $scope.Mobiles;
-
 		for(var i = 0; i< mop.length ; i++){
 			if(id === mop[i]._id){
 				$scope.mobile=mop[i];

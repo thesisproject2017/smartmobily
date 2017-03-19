@@ -95,6 +95,18 @@ module.exports = {
       
       
   },
+  removeMob :function(req,res){
+    console.log(req.body)
+      var id=req.body.id;
+      Mobile.remove({_id:id},function(err,done){
+        if (err){
+          res.json(err)
+        }else{
+          res.json("Removed done!!")
+        }
+      })
+
+  },
   getmobile :function(req,res){
     var name=req.params.name;
     console.log(name)

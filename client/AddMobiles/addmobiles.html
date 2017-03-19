@@ -65,7 +65,7 @@
 </div>
 <hr>
 <input type="text" ng-model="editMobile.name">
-<button ng-click="getMobile()">Get Mobile</button>
+<button class="btn btn-primary" value="" ng-click="getMobile()">Get Mobile</button>
 <form class="form-horizontal" ng-submit='editmob()'>
     <div class="form-group">
 
@@ -118,15 +118,17 @@
     <strong>Success!</strong> Edited done.
   </div>
     </div>
-    <input type="submit" value="edit"/>
+    <button class="btn btn-primary" value="">Edit</button>
     
   </form>
-
+<br>
+<br>
+<br>
   <div>
-    <p> Just put Mobile Name to delete all formation related</p>
+    <p> Just put Mobile Name to delete all related formation </p>
     <input type="text" value="remove"  ng-model="edited.name" placeholder="Mobile Name">
 
-<button ng-click="removeMobile()" >Remove Mobile</button>
+<button class="btn btn-primary" value="" ng-click="removeMobile()" >Remove Mobile</button>
   </div>
 
 

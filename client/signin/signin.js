@@ -25,12 +25,12 @@ $scope.user = {};
 });
 =======
  $scope.user = {};
- $scope.chakUser = false
+ $scope.chakUser = false;
  
  $scope.signin = function() {
   serv.signin($scope.user)
      .then(function(token) {
-        $scope.chakUser = false
+        $scope.chakUser = false;
           if(token.username==='admin'){
             $window.localStorage.setItem('MobileSmart', token.token);
             $window.location.href='/#/AddMobiles'
@@ -43,7 +43,7 @@ $scope.user = {};
 
         })
       .catch(function(error) {
-        $scope.chakUser = true
+        $scope.chakUser = true;
         console.error(error);
       });
   };

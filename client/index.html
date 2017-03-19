@@ -14,7 +14,7 @@
     <script src="Samsung/SamsungCtrl.js"></script>
     <script src="Apple/Apple.js"></script>
     <script src="Huawei‬‏/Huawei‬‏.js"></script>
-    <script src="nokia/nokia.js"></script>
+    <script src="Nokia/Nokia.js"></script>
     <script src="singup/singup.js"></script>
     <script src="lg/lg.js"></script>
     <script src="services/services.js"></script>
@@ -22,8 +22,7 @@
     <script src="signout/signout.js"></script>
     <script src="app.js"></script>
     <script src="AddMobiles/addmobiles.js"></script>
-    <script src="main/main.js"></script>
-    <script src="/socket.io/socket.io.js"></script>     
+    <script src="main/main.js"></script> 
 </head>
 
 <body ng-app ="MobileSmart">
@@ -57,10 +56,11 @@
 <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
 <ng-view></ng-view>
 <script src="/bower_components/jquery/dist/jquery.js"></script>
-<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>    
+<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>  
+
 <script>
     $(document).ready(function(){
-       $(window).scroll(function () {
+     $(window).scroll(function () {
         if ($(this).scrollTop() > 50) {
             $('#back-to-top').fadeIn();
         } else {
@@ -72,7 +72,7 @@
             $('#back-to-top').tooltip('hide');
             $('body,html').animate({
                 scrollTop: 0
-            }, 1800);
+            }, 1200);
             return false;
         });
         
@@ -81,3 +81,11 @@
 </script>
 </body>
 </html>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ar_AR/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>

@@ -4,24 +4,27 @@ app.controller('nokiaCtrl', function($scope, serv,$window) {
 	$scope.comments = {};
 	$scope.resevecomment = [];
 	$scope.Reply = {};
-	$scope.temp = {};
 	$scope.mobile = [];
-	$scope.ttt = false;
-	$scope.disReply = false;
-	$scope.getNokiaMobiles = function(Nokia) {
-		serv.getMobileByCompanyName(Nokia).then(function(data) {
-			console.log(data)
+	$scope.signinFirst = false;
+	$scope.displayReply = false;
+	$scope.load = false;
+	
+	$scope.getNokiaMobiles = (Nokia)=> {
+		serv.getMobileByCompanyName(Nokia).then((data)=> {
+			
 			for(let i = 0; i< data.length; i++) {
 				$scope.Mobiles.push(data[i]);
 				$scope.getComments();
 			}
 		})
-		.catch(function(error) {
+		.catch((error)=> {
 			console.error(error);
 		});
 	};
+
 	$scope.getComments = ()=>{
 		serv.getComments($scope.Mobiles[0].company).then((data)=>{
+			$scope.load = false;
 			$scope.resevecomment = data;
 		})
 		.catch((error)=> {
@@ -29,12 +32,10 @@ app.controller('nokiaCtrl', function($scope, serv,$window) {
 		})
 	};
 
-	$scope.insertcomment = (ttt)=>{
-
+	$scope.insertcomment = (signinFirst)=>{
 		let token = $window.localStorage.getItem('MobileSmart');
-
 		if(token){
-			$scope.ttt = false;
+			$scope.signinFirst = false;
 			$scope.comments.company = $scope.Mobiles[0].company
 			serv.insertComment($scope.comments).then(()=>{
 				$scope.getComments();	
@@ -43,15 +44,18 @@ app.controller('nokiaCtrl', function($scope, serv,$window) {
 				console.error(error);
 			})
 		}else{
-			$scope.ttt = true		
+			$scope.signinFirst = true;		
 		}
 	};
+
+
 	$scope.insertReply = (id,username)=>{
 		let token = $window.localStorage.getItem('MobileSmart');
 		if(token){
-			$scope.disReply = false;
+			$scope.load = true;
+			$scope.displayReply = false;
 			$scope.Reply.id = id;
-			$scope.Reply.username = username
+			$scope.Reply.username = username;
 			serv.insertReply($scope.Reply).then(()=>{
 				$scope.getComments()
 			})
@@ -59,12 +63,13 @@ app.controller('nokiaCtrl', function($scope, serv,$window) {
 				console.error(error);
 			})
 		}else{
-			$scope.disReply = true;
+			$scope.displayReply = true;
 
 		}
 	};
+
 	$scope.viewMobile = function(id){
-		var mop = $scope.Mobiles,temp;
+		var mop = $scope.Mobiles;
 		for(var i = 0; i< mop.length ; i++){
 			if(id === mop[i]._id){
 				$scope.mobile.push(mop[i])
@@ -73,6 +78,6 @@ app.controller('nokiaCtrl', function($scope, serv,$window) {
 	}
 
 	$scope.popMobile = function(){
-		$scope.mobile.pop()
+		$scope.mobile.pop();
 	}
 });

@@ -2,7 +2,15 @@ angular.module('MobileSmart.services', [])
 
 .factory('serv', ($http, $location, $window)=> {
 	return {
-
+        getAllMobile: ()=> {
+			return $http({
+				method: 'GET',
+				url: '/api/mobilesAll/'
+			})
+			.then((resb)=> {
+				return resb.data;
+			});
+		},
 		getMobileByCompanyName: (company)=> {
 			return $http({
 				method: 'GET',
@@ -12,13 +20,13 @@ angular.module('MobileSmart.services', [])
 				return resb.data;
 			});
 		},
-		insertMobile:function(mobile){
+		insertMobile:(mobile)=>{
 			return $http({
 				method:'POST',
 				url: 'api/mobiles/',
 				data:mobile
 			})
-			.then(function(resp){
+			.then((resp)=>{
 				return resp.data
 			})
 

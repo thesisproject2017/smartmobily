@@ -20,17 +20,10 @@ describe('users',function(){
 		.expect('Content-Type' , 'text/html; charset=utf-8')
 		.expect(200)
 		.end(function(err, res){
-			// if(err){
-			// 	console.log(err);
-			// }
 			expect(sign).to.be.an('object');
 			done();
 			setTimeout(done, 15000);
 	})
-		// it(' should have correct username and password',function(done){
-		// 	request(app)
-		// 	.post('/api/users/signin')
-		// })
 })
 
 	it('should verify if the user is exist',function(done){

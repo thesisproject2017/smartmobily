@@ -2,40 +2,43 @@
 <html>
 <head>
     <title>Smart Mobiley</title>
-     <script>(function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=345542982166233";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-        </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
-    <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="image/favicon.ico" sizes="32x32" />
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="./css/commentsAndReplys.css">
-    <script src="Samsung/SamsungCtrl.js"></script>
-    <script src="Apple/Apple.js"></script>
-    <script src="Huawei‬‏/Huawei‬‏.js"></script>
-    <script src="Nokia/Nokia.js"></script>
-    <script src="singup/singup.js"></script>
-    <script src="iochat/iochat.js"></script>
-    <script src="lg/lg.js"></script>
-    <script src="services/services.js"></script>
-    <script src="signin/signin.js"></script>
-    <script src="signout/signout.js"></script>
-    <script src="app.js"></script>
-    <script src="AddMobiles/addmobiles.js"></script>
-    <script src="main/main.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-  
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=345542982166233";
+      fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+<link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="icon" type="image/png" href="image/favicon.ico" sizes="32x32" />
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="./css/commentsAndReplys.css">
+<script src="Samsung/SamsungCtrl.js"></script>
+<script src="Apple/Apple.js"></script>
+<script src="Huawei‬‏/Huawei‬‏.js"></script>
+<script src="Nokia/Nokia.js"></script>
+<script src="singup/singup.js"></script>
+<script src="iochat/iochat.js"></script>
+<script src="lg/lg.js"></script>
+<script src="services/services.js"></script>
+<script src="signin/signin.js"></script>
+<script src="signout/signout.js"></script>
+<script src="app.js"></script>
+<script src="AddMobiles/addmobiles.js"></script>
+<script src="main/main.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+
 </head>
 
 <body ng-app ="MobileSmart">
@@ -57,14 +60,17 @@
                     <li><a href="#/nokia">Nokia</a></li>  
                 </ul>
                 <ul class="nav navbar-nav pull-right">
-                    <li class=""><a href="#/singup">singup</a></li>
-                    <li class=""><a href="#/signin"><span class="glyphicon glyphicon-log-in"></span> signin</a></li>
-                    <li class=""><a href="#/signout"> <span class="glyphicon glyphicon-new-window"></span> signout</a></li>
-                </ul>
+                    <li class=""><a href="#/singup">
+                       <i class="fa fa-user-plus" aria-hidden="true"></i>
+
+                        singup</a></li>
+                        <li class=""><a href="#/signin"><span class="glyphicon glyphicon-log-in"></span> signin</a></li>
+                        <li class=""><a href="#/signout"> <span class="glyphicon glyphicon-new-window"></span> signout</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-</div>
+        </nav>
+    </div>
 </div>
 <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
 <ng-view></ng-view>
@@ -93,6 +99,7 @@
         $('#back-to-top').tooltip('show');
     });
 </script>
+
 <br>
 </body>
 </html>

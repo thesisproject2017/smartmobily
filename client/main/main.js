@@ -2,6 +2,7 @@ var app=angular.module('MobileSmart.main',[]);
 app.controller('mainCtrl',function($scope, serv,$window){
     $scope.Mobiles;
 	$scope.mobile = [];
+	$scope.feeds = {};
 	$scope.getAllMobiles = ()=> {
 		serv.getAllMobile().then((data)=> {
 			$scope.Mobiles = [];
@@ -14,13 +15,19 @@ app.controller('mainCtrl',function($scope, serv,$window){
 			console.error(error);
 		});
 	};
+
 	$scope.viewMobile = (id)=>{
 		var mop = $scope.Mobiles;
-
 		for(var i = 0; i< mop.length ; i++){
 			if(id === mop[i]._id){
 				$scope.mobile = mop[i];
 			}
 		}
+	};
+
+	$scope.insertNewfeed = ()=>{
+		serv.insertNewfeed($scope.feeds).then(()=>{
+			console.log('data insert done');
+		})
 	}
 });

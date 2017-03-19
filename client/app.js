@@ -10,6 +10,7 @@ angular.module('MobileSmart', [
 	'MobileSmart.signout',
 	'MobileSmart.signin',
 	'MobileSmart.singup',
+	'MobileSmart.chat',
 	'ngRoute'
 	])
 
@@ -54,6 +55,10 @@ angular.module('MobileSmart', [
 	.when('/AddMobiles', {
 		templateUrl: 'AddMobiles/addmobiles.html',
 		controller: 'addMobilesCtrl'
+	})
+	.when('/chat', {
+		templateUrl: 'iochat/iochat.html',
+		controller: 'chatCtrl'
 	})
 	.otherwise({redirectTo: "/"});
 

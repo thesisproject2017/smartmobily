@@ -10,8 +10,9 @@ module.exports = (app, express)=> {
 
 	app.get('/api/mobiles/:company', mobileController.getAllMobile);
 	app.post('/api/mobiles/', mobileController.insertMobile);
-	app.post('/api/edit/', mobileController.editMobile)
-	app.get('/api/getmobile/:name', mobileController.getmobile)
+	app.post('/api/edit/', mobileController.editMobile);
+	app.get('/api/getmobile/:name', mobileController.getmobile);
+	app.get('/api/mobilesAll/',mobileController.getAllMobiles);
 	// =============================================================================
 	/*								Users Route									 */
 	// =============================================================================

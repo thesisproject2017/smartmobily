@@ -4,7 +4,6 @@ app.controller('mainCtrl',function($scope, serv,$window){
 	$scope.mobile = [];
 	$scope.getAllMobiles = ()=> {
 		serv.getAllMobile().then((data)=> {
-			console.log(data)
 			var len = data.length
 			for(let i = len-1; i>= len-3; i--) {
 				$scope.Mobiles.push(data[i]);

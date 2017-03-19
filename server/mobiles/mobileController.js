@@ -3,6 +3,15 @@ let Users = require('../users/usersModel.js')
 var nodemailer = require('nodemailer');
 
 module.exports = {
+  getAllMobiles: function(req, res) {
+        Mobile.find({}, function(err, AllMobile) {
+            if(err) {
+                res.status(500).send('err');
+            }else{
+                res.json(AllMobile);
+            }
+        });
+    },
     getAllMobile: function(req, res) {
         Mobile.find({company: req.params.company}, function(err, AllMobile) {
             if(err) {

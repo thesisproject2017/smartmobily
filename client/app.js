@@ -14,6 +14,7 @@ angular.module('MobileSmart', [
 	'ngRoute'
 	])
 
+
 .config(function($routeProvider, $httpProvider, $locationProvider) {
 	$routeProvider
 	.when('/nokia', {

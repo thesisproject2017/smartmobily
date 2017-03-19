@@ -1,6 +1,6 @@
 var app=angular.module('MobileSmart.lg',[]);
 app.controller('lgCtrl', function($scope, serv,$window) {
-$scope.Mobiles = [];
+	$scope.Mobiles;
 	$scope.comments = {};
 	$scope.resevecomment = [];
 	$scope.Reply = {};
@@ -11,6 +11,7 @@ $scope.Mobiles = [];
 	
 	$scope.getLgMobiles = function(Lg) {
 		serv.getMobileByCompanyName(Lg).then(function(data) {
+			$scope.Mobiles=[];
 			for(let i = 0; i< data.length; i++) {
 				$scope.Mobiles.push(data[i]);
 				$scope.getComments();
@@ -43,7 +44,7 @@ $scope.Mobiles = [];
 				console.error(error);
 			})
 		}else{
-			$scope.signinFirst = true		
+			$scope.signinFirst = true;		
 		}
 	};
 
@@ -53,30 +54,26 @@ $scope.Mobiles = [];
 		if(token){
 			$scope.load = true;
 			$scope.displayReply = false;
-		$scope.Reply.id = id;
-		$scope.Reply.username = username
-		serv.insertReply($scope.Reply).then(()=>{
-			$scope.getComments()
-		})
-		.catch((error)=> {
-			console.error(error);
-		})
-	}else{
+			$scope.Reply.id = id;
+			$scope.Reply.username = username
+			serv.insertReply($scope.Reply).then(()=>{
+				$scope.getComments()
+			})
+			.catch((error)=> {
+				console.error(error);
+			})
+		}else{
 			$scope.displayReply = true;
 
-	}
+		}
 	};
 
 	$scope.viewMobile = function(id){
 		var mop = $scope.Mobiles;
 		for(var i = 0; i< mop.length ; i++){
 			if(id === mop[i]._id){
-				$scope.mobile.push(mop[i])
+				$scope.mobile = mop[i];
 			}
 		}
-	}
-
-	$scope.popMobile = function(){
-		$scope.mobile.pop()
 	}
 });

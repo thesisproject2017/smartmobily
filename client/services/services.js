@@ -2,6 +2,7 @@ angular.module('MobileSmart.services', [])
 
 .factory('serv', ($http, $location, $window)=> {
 	return {
+		
         getAllMobile: ()=> {
 			return $http({
 				method: 'GET',

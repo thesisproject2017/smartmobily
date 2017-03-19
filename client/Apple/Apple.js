@@ -1,17 +1,18 @@
 var app = angular.module('MobileSmart.Apple', [])
 
 app.controller('AppleCtrl', function($scope, serv,$window) {
-	$scope.Mobiles = [];
+	$scope.Mobiles;
 	$scope.comments = {};
 	$scope.resevecomment = [];
 	$scope.Reply = {};
-	$scope.mobile = [];
+	$scope.mobile = {};
 	$scope.signinFirst = false;
 	$scope.displayReply = false;
 	$scope.load = false;
 
 	$scope.getAppleMobiles = (Apple)=> {
 		serv.getMobileByCompanyName(Apple).then((data)=> {
+			$scope.Mobiles=[];
 			for(let i = 0; i< data.length; i++) {
 				$scope.Mobiles.push(data[i]);
 				$scope.getComments();
@@ -70,14 +71,11 @@ app.controller('AppleCtrl', function($scope, serv,$window) {
 
 	$scope.viewMobile = (id)=>{
 		var mop = $scope.Mobiles;
+
 		for(var i = 0; i< mop.length ; i++){
 			if(id === mop[i]._id){
-				$scope.mobile.push(mop[i]);
+				$scope.mobile=mop[i];
 			}
 		}
-	}
-
-	$scope.popMobile = ()=>{
-		$scope.mobile.pop();
 	}
 });

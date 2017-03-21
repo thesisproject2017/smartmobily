@@ -1,6 +1,6 @@
 var app = angular.module('MobileSmart.chat', []);
 app.controller('chatCtrl', function($scope, serv) {
-  $scope.socket = io.connect('http://127.0.0.1:3000');
+  $scope.socket = io.connect('https://young-depths-40849.herokuapp.com');
   $scope.message = $('#message');
   $scope.$chat = $('#chat');
   $scope.messageArea = $('#messageArea');

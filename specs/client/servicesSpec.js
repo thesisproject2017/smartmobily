@@ -32,10 +32,10 @@ describe('Services', function () {
      expect(serv.signout).to.be.a('function');
    });
 
-    // it('should get all Mobile with `getAllMobile`', function () {
 
-     // /$httpBackend.expect('GET', '/api/mobilesAll/').respond(200 );
 
+    //it('should get all Mobile with `getAllMobile`', function () {
+     //$httpBackend.expect('GET', '/api/mobilesAll/').respond(200 );
     //   serv.getAllMobile().then(function (Mobiles) {
     //     expect(Mobiles).to.deep.equal(Array);
     //   });

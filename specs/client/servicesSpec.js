@@ -1,5 +1,6 @@
 'use strict';
 
+console.log("smthg is here")
 describe('Services', function () {
   beforeEach(module('MobileSmart.services'));
 
@@ -27,7 +28,7 @@ describe('Services', function () {
 
     it('should get all Mobile with `getAllMobile`', function () {
 
-      $httpBackend.expect('GET', '/api/mobiles/:company').respond("Nokia");
+      $httpBackend.expect('GET', '/api/mobiles/:company').respond(200 );
 
       serv.getAllMobile().then(function (Mobiles) {
         expect(Mobiles).to.deep.equal(Array);

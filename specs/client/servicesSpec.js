@@ -22,20 +22,26 @@ describe('Services', function () {
       expect(serv).to.exist;
     });
 
+    it('should have a method `insertMobile`', function () {
+      expect(serv.insertMobile).to.be.a('function');
+    });
     it('should have a method `getAllMobile`', function () {
-      expect(serv.getAllMobile).to.be.a('function');
-    });
+     expect(serv.getAllMobile).to.be.a('function');
+   });
+    it('should have a method `signout`', function () {
+     expect(serv.signout).to.be.a('function');
+   });
 
-    it('should get all Mobile with `getAllMobile`', function () {
+    // it('should get all Mobile with `getAllMobile`', function () {
 
-      $httpBackend.expect('GET', '/api/mobiles/:company').respond(200 );
+     // /$httpBackend.expect('GET', '/api/mobilesAll/').respond(200 );
 
-      serv.getAllMobile().then(function (Mobiles) {
-        expect(Mobiles).to.deep.equal(Array);
-      });
+    //   serv.getAllMobile().then(function (Mobiles) {
+    //     expect(Mobiles).to.deep.equal(Array);
+    //   });
 
-      $httpBackend.flush();
-    });
+     // $httpBackend.flush();
+   });
 
     // it('should add a new link with `addOne`', function () {
     //   var github = { url: 'https://github.com/reactorcore' };
@@ -57,6 +63,6 @@ describe('Services', function () {
 
   });
 
-});
+//});
 
 

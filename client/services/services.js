@@ -1,23 +1,23 @@
 angular.module('MobileSmart.services', [])
 
-.factory('serv', ($http, $location, $window)=> {
+.factory('serv', function ($http, $location, $window) {
 	return {
-        getAllMobile: ()=> {
+        getAllMobile: function () {
 			return $http({
 				method: 'GET',
 				url: '/api/mobilesAll/'
 			})
-			.then((resb)=> {
+			.then(function (resb) {
 				return resb.data;
 			});
 		},
 
-		getMobileByCompanyName: (company)=> {
+		getMobileByCompanyName: function(company) {
 			return $http({
 				method: 'GET',
 				url: '/api/mobiles/'+company
 			})
-			.then((resb)=> {
+			.then(function (resb) {
 				return resb.data;
 			});
 		},
@@ -66,76 +66,76 @@ angular.module('MobileSmart.services', [])
 			})
 		},
 
-		signin: (user)=> {
+		signin: function (user) {
 			return $http({
 				method: 'POST',
 				url: '/api/users/signin',
 				data: user
 			})
-			.then((resp)=> {
+			.then(function (resp) {
 				return resp.data;
 			});
 		},
 
-		signup: (user)=> {
+		signup: function (user) {
 			return $http({
 				method: 'POST',
 				url: '/api/users/signup',
 				data: user
 			})
-			.then((resp)=> {
+			.then(function (resp) {
 				return resp.data.token;
 			});
 		},
 
-		isAuth: ()=> {
+		isAuth: function () {
 			return !!$window.localStorage.getItem('MobileSmart');
 		},
 
-		signout: ()=> {
+		signout: function () {
 			$window.localStorage.removeItem('MobileSmart');
 			$location.path('/signin');
 		},
-		insertComment: (comment)=>{
+		insertComment: function (comment){
 			return $http({
 				method : 'POST',
 				url : '/api/comment/comment',
 				data: comment,
 				token : $window.localStorage.getItem('MobileSmart')
 			})
-			.then((res)=>{
+			.then(function (res){
 				return res.data.comment;
 			})
 		},
 
-		getComments : (company)=>{
+		getComments : function (company){
 			return $http({
 				method : 'GET',
 				url : '/api/comment/comment/'+company
 			})
-			.then((res)=>{
+			.then(function (res){
 				return res.data;
 			})
 		},
 
-		insertReply : (data)=>{
+		insertReply : function (data){
 			return $http({
 				method:"POST",
 				url:'/api/reply/reply/',
 				data : data,
 				token:$window.localStorage.getItem('MobileSmart')
 			})
-			.then((res)=>{
+			.then(function (res){
 				return res.data
 			})
 		},
-		insertNewfeed : (newFeedes)=>{
+		insertNewfeed : function (newFeedes){
 			return $http({
 				method: 'POST',
 				url: 'api/feeds/',
 				data: newFeedes
 			})
-			.then((resp)=>{
+			.then(function (resp){
 				console.log(resp);
 			})
 		}

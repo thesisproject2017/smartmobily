@@ -9,7 +9,7 @@ $scope.signin = function() {
     .then(function(token) {
        $scope.chakUser = false;
          if(token.username==='admin'){
-           $window.localStorage.setItem('MobileSmart', token.token);
+           $window.localStorage.setItem('admin', token.token);
            $window.location.href='/#/AddMobiles'
 
          }else{

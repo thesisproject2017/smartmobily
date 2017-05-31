@@ -4,7 +4,7 @@
   "description": "mobile service",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server/server.js",
+    "start": "nodemon server/cluster.js",
     "test": "mocha server/mobiles/spec.js"
   },
   "repository": {

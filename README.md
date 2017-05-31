@@ -9,24 +9,10 @@
   - __Development Team Members__:Moamar Swedan, Mohammad Tarbosh ,Muhammad Enjari .
 
 
-## Table of Contents
-
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-    1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)
-1. [Team](#team)
-1. [Contributing](#contributing)
-
-## Usage
-
-> You can open the App on Google Play Store 
-
 ## Requirements
 
 - Node.js
-- Ionic
+- Angular.js
 - MongoDB
 - Express
 - 
@@ -34,24 +20,14 @@
 ## Development
 
 ### Installing Dependencies
-##Tasks
-install node.js
-install ionic
 
-From within the root directory:
-
-```sh
-sudo npm install -g bower
-npm install
-bower install
-npm install -g cordova ionic
 ```
 
-### Roadmap
+npm install 
+```
+
+### The Project on Heroku  
  
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
+View the project [smart](https://smartmobily.herokuapp.com/#/)
 
 
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.

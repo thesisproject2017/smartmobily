@@ -1,6 +1,7 @@
-# Project Name:Smart Mobily
+# Smart Mobily
 
-> Pithy project description
+> Mobile phone platform where users can find the latest information on the newest phones and
+communicate with others to solve their problems.
 
 ## Team
 
@@ -15,14 +16,12 @@
 - Angular.js
 - MongoDB
 - Express
-- 
 
-## Development
+
 
 ### Installing Dependencies
 
 ```
-
 npm install 
 ```
 

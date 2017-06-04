@@ -27,6 +27,6 @@ npm install
 
 ### The Project on Heroku  
  
-View the project [smart](https://smartmobily.herokuapp.com/#/)
+View the project [smart](https://smartmobily2.herokuapp.com/#/)
 
 

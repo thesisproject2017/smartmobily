@@ -7,7 +7,7 @@ app.controller('mainCtrl',function($scope, serv,$window){
 		serv.getAllMobile().then(function(data) {
 			$scope.Mobiles = [];
 			var len = data.length
-			for(let i = len-1; i>= len-3; i--) {
+			for(var i = len-1; i>= len-3; i--) {
 				$scope.Mobiles.push(data[i]);
 			}
 		})

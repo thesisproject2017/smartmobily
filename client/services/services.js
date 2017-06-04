@@ -34,7 +34,6 @@ angular.module('MobileSmart.services', [])
 		},
 
 		getMobile:function(mobilename){
-			console.log(mobilename)
 			return $http({
 				method:'GET',
 				url:'/api/getmobile/'+ mobilename.name 

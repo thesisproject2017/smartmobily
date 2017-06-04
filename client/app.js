@@ -70,9 +70,9 @@ angular.module('MobileSmart', [
 
 .factory('AttachTokens', function($window) {
 
-	let attach = {
+	var attach = {
 		request: function(object) {
-			let jwt = $window.localStorage.getItem('MobileSmart');
+			var jwt = $window.localStorage.getItem('MobileSmart');
 			if (jwt) {
 				object.headers['x-access-token'] = jwt;
 			}

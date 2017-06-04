@@ -13,7 +13,7 @@ app.controller('AppleCtrl', function($scope, serv,$window) {
 	$scope.getAppleMobiles = function(Apple) {
 		serv.getMobileByCompanyName(Apple).then( function(data) {
 			$scope.Mobiles=[];
-			for(let i = 0; i< data.length; i++) {
+			for(var i = 0; i< data.length; i++) {
 				$scope.Mobiles.push(data[i]);
 				$scope.getComments();
 			}
@@ -34,7 +34,7 @@ app.controller('AppleCtrl', function($scope, serv,$window) {
 	};
 
 	$scope.insertcomment = function(signinFirst){
-		let token = $window.localStorage.getItem('MobileSmart');
+		var token = $window.localStorage.getItem('MobileSmart');
 		if(token){
 			$scope.signinFirst = false;
 			$scope.comments.company = $scope.Mobiles[0].company
@@ -51,7 +51,7 @@ app.controller('AppleCtrl', function($scope, serv,$window) {
 
 
 	$scope.insertReply = function(id,username){
-		let token = $window.localStorage.getItem('MobileSmart');
+		var token = $window.localStorage.getItem('MobileSmart');
 		if(token){
 			$scope.load = true;
 			$scope.displayReply = false;

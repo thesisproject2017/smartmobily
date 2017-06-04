@@ -13,7 +13,7 @@ app.controller('SamsungCtrl', function($scope, serv,$window) {
 	$scope.getSamsungMobiles = function (Samsung) {
 		serv.getMobileByCompanyName(Samsung).then(function(data) {
 			$scope.Mobiles = [];
-			for(let i = 0; i< data.length; i++) {
+			for(var i = 0; i< data.length; i++) {
 				$scope.Mobiles.push(data[i]);
 				$scope.getComments();
 			}
@@ -37,7 +37,7 @@ app.controller('SamsungCtrl', function($scope, serv,$window) {
 
 	$scope.insertcomment = function (signinFirst){
 
-		let token = $window.localStorage.getItem('MobileSmart');
+		var token = $window.localStorage.getItem('MobileSmart');
 
 		if(token){
 			$scope.signinFirst = false;
@@ -55,7 +55,7 @@ app.controller('SamsungCtrl', function($scope, serv,$window) {
 	};
 
 	$scope.insertReply = function (id,username){
-		let token = $window.localStorage.getItem('MobileSmart');
+		var token = $window.localStorage.getItem('MobileSmart');
 		if(token){
 			$scope.displayReply = false;
 			$scope.load = true;

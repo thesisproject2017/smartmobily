@@ -10,38 +10,38 @@ app.controller('Huawei‬‏Ctrl', function($scope, serv,$window) {
 	$scope.displayReply = false;
 	$scope.load = false;
 
-	$scope.getHuaweiMobiles = (Huawei)=> {
-		serv.getMobileByCompanyName(Huawei).then((data)=> {
+	$scope.getHuaweiMobiles = function (Huawei) {
+		serv.getMobileByCompanyName(Huawei).then(function (data) {
 			$scope.Mobiles=[];
-			for(let i = 0; i< data.length; i++) {
+			for(var i = 0; i< data.length; i++) {
 				$scope.Mobiles.push(data[i]);
 				$scope.getComments();
 			}
 		})
-		.catch((error)=> {
+		.catch(function(error) {
 			console.error(error);
 		});
 	};
-	$scope.getComments = ()=>{
-		serv.getComments($scope.Mobiles[0].company).then((data)=>{
+	$scope.getComments = function(){
+		serv.getComments($scope.Mobiles[0].company).then(function (data){
 			$scope.load = false;
 
 			$scope.resevecomment = data;
 		})
-		.catch((error)=> {
+		.catch(function (error) {
 			console.error(error);
 		})
 	};
 
-	$scope.insertcomment = (signinFirst)=>{
-		let token = $window.localStorage.getItem('MobileSmart');
+	$scope.insertcomment = function (signinFirst){
+		var token = $window.localStorage.getItem('MobileSmart');
 		if(token){
 			$scope.signinFirst = false;
 			$scope.comments.company = $scope.Mobiles[0].company
-			serv.insertComment($scope.comments).then(()=>{
+			serv.insertComment($scope.comments).then(function(){
 				$scope.getComments();	
 			})
-			.catch((error)=> {
+			.catch(function(error){
 				console.error(error);
 			})
 		}else{
@@ -50,17 +50,17 @@ app.controller('Huawei‬‏Ctrl', function($scope, serv,$window) {
 	};
 
 
-	$scope.insertReply = (id,username)=>{
-		let token = $window.localStorage.getItem('MobileSmart');
+	$scope.insertReply = function (id,username){
+		var token = $window.localStorage.getItem('MobileSmart');
 		if(token){
 			$scope.load = true;
 			$scope.displayReply = false;
 			$scope.Reply.id = id;
 			$scope.Reply.username = username
-			serv.insertReply($scope.Reply).then(()=>{
+			serv.insertReply($scope.Reply).then(function (){
 				$scope.getComments()
 			})
-			.catch((error)=> {
+			.catch(function (error) {
 				console.error(error);
 			})
 		}else{
@@ -69,7 +69,7 @@ app.controller('Huawei‬‏Ctrl', function($scope, serv,$window) {
 		}
 	};
 
-	$scope.viewMobile = (id)=>{
+	$scope.viewMobile = function (id){
 		var mop = $scope.Mobiles;
 
 		for(var i = 0; i< mop.length ; i++){

@@ -3,20 +3,20 @@ app.controller('mainCtrl',function($scope, serv,$window){
     $scope.Mobiles;
 	$scope.mobile = [];
 	$scope.feeds = {};
-	$scope.getAllMobiles = ()=> {
-		serv.getAllMobile().then((data)=> {
+	$scope.getAllMobiles = function() {
+		serv.getAllMobile().then(function(data) {
 			$scope.Mobiles = [];
 			var len = data.length
-			for(let i = len-1; i>= len-3; i--) {
+			for(var i = len-1; i>= len-3; i--) {
 				$scope.Mobiles.push(data[i]);
 			}
 		})
-		.catch((error)=> {
+		.catch(function (error) {
 			console.error(error);
 		});
 	};
 
-	$scope.viewMobile = (id)=>{
+	$scope.viewMobile = function (id){
 		var mop = $scope.Mobiles;
 		for(var i = 0; i< mop.length ; i++){
 			if(id === mop[i]._id){
@@ -25,8 +25,8 @@ app.controller('mainCtrl',function($scope, serv,$window){
 		}
 	};
 
-	$scope.insertNewfeed = ()=>{
-		serv.insertNewfeed($scope.feeds).then(()=>{
+	$scope.insertNewfeed = function (){
+		serv.insertNewfeed($scope.feeds).then(function (){
 			console.log('data insert done');
 		})
 	}

@@ -3,7 +3,7 @@ let Reply   = require('../reply/reply.js');
 let jwt     = require('jwt-simple');
 module.exports = {
 
- insertComment: (req, res)=> {
+ insertComment: function(req, res) {
   let token = req.headers['x-access-token']
   token = jwt.decode(token,'secret')
   let newComment = new Comment({
@@ -12,7 +12,7 @@ module.exports = {
     company:req.body.company
   });
 
-  newComment.save((err, newComment)=> {
+  newComment.save( function(err, newComment) {
     if(err) {
       res.status(500).send(err);
     }else{
@@ -21,8 +21,8 @@ module.exports = {
   });
 },
 
-getAllComments: (req, res)=> {
-  Comment.find({company:req.params.company}, (err, allcomment)=> {
+getAllComments: function(req, res) {
+  Comment.find({company:req.params.company}, function(err, allcomment) {
     if(err) {
       res.status(500).send('err');
     }else{

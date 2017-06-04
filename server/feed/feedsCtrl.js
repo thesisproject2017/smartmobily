@@ -2,7 +2,7 @@ let Feed = require('./feed.js');
 let jwt = require('jwt-simple');
 
 module.exports = {
- insertNewfeeds: (req, res)=> {
+ insertNewfeeds: function (req, res) {
   
   let name =  req.body.name;
   let email = req.body.email;
@@ -11,7 +11,7 @@ module.exports = {
     name : name,
     email:email
   });
-  newfeed.save((err, newfeed)=> {
+  newfeed.save( function (err, newfeed) {
     if(err) {
       res.status(500).send(err);
     }else{

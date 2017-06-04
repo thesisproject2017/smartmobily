@@ -3,7 +3,7 @@
 
 app.controller('singupCtrl', function($scope, $window, $location, serv) {
     $scope.userIsExest =false;
- $scope.user = {};
+    $scope.user = {};
 
   $scope.signup = function() {
     serv.signup($scope.user)

@@ -7,7 +7,7 @@ let feedsCtrl = require('../feed/feedsCtrl.js');
 /*								mobile route									 */
 // =============================================================================
 
-module.exports = (app, express)=> {
+module.exports = function (app, express) {
 
 
 	app.get('/api/mobiles/:company', mobileController.getAllMobile);
